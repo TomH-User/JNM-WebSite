@@ -93,6 +93,13 @@ class Partenaires
         return $this->offres;
     }
 
+    public function setOffres(?string $offre): self
+    {
+        $this->offre = $offre;
+
+        return $this;
+    }
+
     public function addOffre(Offre $offre): self
     {
         if (!$this->offres->contains($offre)) {
