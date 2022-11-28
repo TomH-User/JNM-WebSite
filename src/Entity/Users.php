@@ -97,9 +97,15 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $activites;
 
+    /**
+     * @ORM\ManyToMany(targetEntity=Statut::class, mappedBy="idStatut")
+     */
+    private $RefStatut;
+
     public function __construct()
     {
         $this->activites = new ArrayCollection();
+        $this->RefStatut = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -345,6 +351,33 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     {
         if ($this->activites->removeElement($activite)) {
             $activite->removeIdActivite($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Statut>
+     */
+    public function getRefStatut(): Collection
+    {
+        return $this->RefStatut;
+    }
+
+    public function addRefStatut(Statut $refStatut): self
+    {
+        if (!$this->RefStatut->contains($refStatut)) {
+            $this->RefStatut[] = $refStatut;
+            $refStatut->addIdStatut($this);
+        }
+
+        return $this;
+    }
+
+    public function removeRefStatut(Statut $refStatut): self
+    {
+        if ($this->RefStatut->removeElement($refStatut)) {
+            $refStatut->removeIdStatut($this);
         }
 
         return $this;
