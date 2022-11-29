@@ -12,7 +12,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PartenaireController extends AbstractController
 {
-    #[Route('/partenaire1', name: 'app_partenaire')]
+    /**
+     * Undocumented function
+     * @Route("/partenaire1", name="app_partenaire")
+     */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $partenaire = new Partenaires();
