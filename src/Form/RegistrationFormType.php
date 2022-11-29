@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Users;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
@@ -22,7 +23,7 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('RefStatut', TextType::class,["attr" => ["class" => "form-control"]])
+            // ->add('RefStatut', TextType::class,["attr" => ["class" => "form-control"]])
             ->add('email')
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
@@ -62,7 +63,7 @@ class RegistrationFormType extends AbstractType
                     "class" => "form-control"
                 ]
             ])
-            ->add('DateNaissance', DateType::class, [
+            ->add('DateNaissance', BirthdayType::class, [
                 "attr" => [
                     "class" => "form-control"
                 ]
