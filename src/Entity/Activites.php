@@ -60,6 +60,12 @@ class Activites
 
         return $this;
     }
+    public function setIdActivite(int $idActivites): self
+    {
+        $this->idActivites = $idActivites;
+
+        return $this;
+    }
 
     public function removeIdActivite(Users $idActivite): self
     {

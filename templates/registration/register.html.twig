@@ -6,33 +6,10 @@
     <h1>Register</h1>
 
     {{ form_start(registrationForm) }}
-        {# {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.roles) }}
-        {{ form_row(registrationForm.nom) }}
-        {{ form_row(registrationForm.prenom) }}
-        {{ form_row(registrationForm.DateNaissance) }}
-        {{ form_row(registrationForm.NumTel) }}
-        {{ form_row(registrationForm.adresse) }}
-        {{ form_row(registrationForm.region) }}
-        {{ form_row(registrationForm.miage) }} #}
         <div class="form-group">
             {{ form_label(registrationForm.email) }}
-            {# {% block form_label %} 
-                <label for="registration_form_email" 
-                    class="required"    
-                    style="font-size: 23px; font-weight: bold; font-family: Helvetica;">
-                    Email
-                </label>
-             {% endblock %} #}
             {{ form_widget(registrationForm.email) }}
         </div>
-        {# <div class="form-group">
-            {{ form_label(form.roles) }}
-            {{ form_widget(form.roles) }}
-        </div> #}
         <div class="form-group">
             {{ form_label(registrationForm.plainPassword) }}
             {{ form_widget(registrationForm.plainPassword) }}
@@ -76,11 +53,6 @@
 
         <button type="submit" class="btn">Register
             <style>
-                .btn:
-                {
-                    align-items:flex-end;
-                    justify-content:flex-end;
-                }
             </style>
         </button>
 
