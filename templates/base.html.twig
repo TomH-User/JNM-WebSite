@@ -1,12 +1,28 @@
 <!DOCTYPE html>
+
+
 <html>
     <head>
+        <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {# {% block stylesheets %} #}
             <style>
                 {# {% include 'css/index.scss' %} #}
+
+                #compteur{
+                    font-size : x-large;
+                    text-align :center;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr ;
+                    gap: 10px 2em;
+                    }
+
+                #compteur :first-child {
+                    align-self: justify;
+                }
+
                 p.jnm{
                     color:whitesmoke;
                     text-align: center;
@@ -119,6 +135,50 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        <div id="compteur">
+        
+        <div id="days"></div>
+
+        <div id="hours"></div>
+
+        <div id="minutes"></div>
+
+        <div id="seconds"></div>
+
+        <script>
+
+        var endDate = new Date('Mar 20, 2023').getTime();
+
+        var countDownTimer = setInterval(() => {
+
+        var now = new Date().getTime();
+
+        var remainingTime = endDate - now;
+
+        const second = 1000;
+
+        const minute = second * 60;
+
+        const hour = minute * 60;
+
+        const day = hour * 24;
+
+        daysLeft = Math.trunc(remainingTime / day);
+        hoursLeft = Math.trunc((remainingTime % day) / hour); 
+        minutesLeft = Math.trunc((remainingTime % hour) / minute);
+        secondsLeft = Math.trunc((remainingTime % minute) / second);
+        document.querySelector('#days').innerHTML = daysLeft + ' Jours';
+        document.querySelector('#hours').innerHTML = hoursLeft + ' Heures';
+        document.querySelector('#minutes').innerHTML = minutesLeft + ' Minutes';
+        document.querySelector('#seconds').innerHTML = secondsLeft + ' Secondes';
+
+
+        }, 1000);
+        </script>
+        </div>
+        
+        
     </head>
     <body>
     <header>
@@ -225,3 +285,4 @@
         
     </body>
 </html>
+
