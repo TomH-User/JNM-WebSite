@@ -2,14 +2,14 @@
 
 namespace App\Entity;
 
-use App\Repository\VideoRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use App\Repository\VideoRepository;
 /**
  * @ORM\Entity(repositoryClass=VideoRepository::class)
  */
 class Video
 {
+    
     /**
      * @ORM\Id
      * @ORM\GeneratedValue
@@ -28,10 +28,15 @@ class Video
      */
     private $lien;
 
+    // /**
+    //  * @ORM\Column(type="string", length=255)
+    //  */
+    // private $email;
+
     /**
      * @ORM\Column(type="integer")
      */
-    private $nbVotes;
+    private $nbVotes = 0;
 
     public function getId(): ?int
     {
@@ -45,7 +50,7 @@ class Video
 
     public function setRefUtilisateur(Users $refUtilisateur): self
     {
-        $this->refUtilisateur = $refUtilisateur;
+        $this->refUtilisateur = $refUtilisateur->getId();
 
         return $this;
     }
@@ -73,4 +78,16 @@ class Video
 
         return $this;
     }
+    
+    // public function getEmail(): ?string
+    // {
+    //     return $this->email;
+    // }
+
+    // public function setEmail(string $email): self
+    // {
+    //     $this->email = $email;
+
+    //     return $this;
+    // }
 }
