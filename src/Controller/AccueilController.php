@@ -50,7 +50,7 @@ class AccueilController extends AbstractController
      */
     public function connexion(): Response
     {
-        return $this->render('accueil/connexion.html.twig');
+        return $this->render('security/login.html.twig');
     }
     /**
      * Undocumented function

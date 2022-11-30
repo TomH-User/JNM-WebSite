@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>Statut</h1>
+    {{ form_start(statutForm) }}
+        <div class="form-group">
+            {{ form_label(statutForm.NomStatut) }}
+            {{ form_widget(statutForm.NomStatut) }}
+        </div>
+        <button type="submit" class="btn">Ajouter
+            <style>
+                .btn:
+                {
+                    align-items:flex-end;
+                    justify-content:flex-end;
+                }
+            </style>
+        </button>
+
+    {{ form_end(statutForm) }}
+{% endblock %}

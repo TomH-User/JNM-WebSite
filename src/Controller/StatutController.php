@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\Statut;
+use App\Form\StatutFormType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,7 +19,7 @@ class StatutController extends AbstractController
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
         $statut = new Statut();
-        $form = $this->createForm(PartenaireFormType::class, $statut);
+        $form = $this->createForm(StatutFormType::class, $statut);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
