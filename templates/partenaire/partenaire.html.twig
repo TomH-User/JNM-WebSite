@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>New Partenaire</h1>
+    {{ form_start(partenaireForm) }}
+        <div class="form-group">
+            {# <style> #}
+                {# div.Nomsociete {
+                    display: flex;
+                    width: 100%;
+                    height: 150px;
+                    justify-content: space-between;
+                    align-items: center;
+                } #}
+                {{ form_label(partenaireForm.Nomsociete) }}
+                {{ form_widget(partenaireForm.Nomsociete) }}
+            {# </style> #}
+        </div>
+        <div class="form-group">
+            {{ form_label(partenaireForm.adressepostale) }}
+            {{ form_widget(partenaireForm.adressepostale) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(partenaireForm.telPartenaire) }}
+            {{ form_widget(partenaireForm.telPartenaire) }}
+        </div>
+
+        <button type="submit" class="btn">Register
+            <style>
+                .btn:
+                {
+                    align-items:flex-end;
+                    justify-content:flex-end;
+                }
+            </style>
+        </button>
+
+    {{ form_end(partenaireForm) }}
+{% endblock %}

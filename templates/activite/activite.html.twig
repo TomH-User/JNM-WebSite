@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register{% endblock %}
+
+{% block body %}
+    <h1>New Activite</h1>
+    {{ form_start(activiteForm) }}
+        <div class="form-group">
+            {{ form_label(activiteForm.intitule) }}
+            {{ form_widget(activiteForm.intitule) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(activiteForm.Date) }}
+            {{ form_widget(activiteForm.Date) }}
+        </div>
+        {# <div class="form-group">
+            {{ form_label(activiteForm.idActivites) }}
+            {{ form_widget(activiteForm.idActivites) }}
+        </div> #}
+
+        <button type="submit" class="btn">Register
+            <style>
+                .btn:
+                {
+                    align-items:flex-end;
+                    justify-content:flex-end;
+                }
+            </style>
+        </button>
+
+    {{ form_end(activiteForm) }}
+{% endblock %}

@@ -2,6 +2,7 @@
 
 
 <html>
+<title>Journée Nationale MIAGE 2023  </title>
     <head>
         <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
         <meta charset="UTF-8">
@@ -10,12 +11,33 @@
         {# {% block stylesheets %} #}
             <style>
                 {# {% include 'css/index.scss' %} #}
+    
+            @import url('https://fonts.googleapis.com/css2?family=Rubik+Maze&display=swap');
+
+                :root{
+                --btn-width: 200px;
+                --btn-height: 50px;
+                --btn-text-color: #fff;
+                --btn-border-radious: 10px;
+                --btn-thikness: -10px;
+                --btn-font-size: 1em;
+                --btn-fourground-color: #CE352E;
+                --btn-background-color: #541614;
+                --body-background: #455063;
+                }
+
+                body{
+                background: var(--body-background);
+                font-family: 'Rubik Maze', cursive;
+                }
+
+
 
                 #compteur{
                     font-size : x-large;
                     text-align :center;
                     display: grid;
-                    grid-template-columns: 1fr 1fr 1fr 1fr ;
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
                     gap: 10px 2em;
                     }
 
@@ -137,6 +159,7 @@
         {% endblock %}
 
         <div id="compteur">
+        JNM
         
         <div id="days"></div>
 
@@ -145,7 +168,7 @@
         <div id="minutes"></div>
 
         <div id="seconds"></div>
-
+        NANTERRE
         <script>
 
         var endDate = new Date('Mar 20, 2023').getTime();
