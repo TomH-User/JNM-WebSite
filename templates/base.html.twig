@@ -1,12 +1,50 @@
 <!DOCTYPE html>
+
+
 <html>
+<title>Journée Nationale MIAGE 2023  </title>
     <head>
+        <link rel="shortcut icon" type="image/png" href="images/logo.png"/>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
         {# {% block stylesheets %} #}
             <style>
                 {# {% include 'css/index.scss' %} #}
+    
+            @import url('https://fonts.googleapis.com/css2?family=Rubik+Maze&display=swap');
+
+                :root{
+                --btn-width: 200px;
+                --btn-height: 50px;
+                --btn-text-color: #fff;
+                --btn-border-radious: 10px;
+                --btn-thikness: -10px;
+                --btn-font-size: 1em;
+                --btn-fourground-color: #CE352E;
+                --btn-background-color: #541614;
+                --body-background: #455063;
+                }
+
+                body{
+                background: var(--body-background);
+                font-family: 'Rubik Maze', cursive;
+                }
+
+
+
+                #compteur{
+                    font-size : x-large;
+                    text-align :center;
+                    display: grid;
+                    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+                    gap: 10px 2em;
+                    }
+
+                #compteur :first-child {
+                    align-self: justify;
+                }
+
                 p.jnm{
                     color:whitesmoke;
                     text-align: center;
@@ -119,6 +157,51 @@
         {% block javascripts %}
             {{ encore_entry_script_tags('app') }}
         {% endblock %}
+
+        <div id="compteur">
+        JNM
+        
+        <div id="days"></div>
+
+        <div id="hours"></div>
+
+        <div id="minutes"></div>
+
+        <div id="seconds"></div>
+        NANTERRE
+        <script>
+
+        var endDate = new Date('Mar 20, 2023').getTime();
+
+        var countDownTimer = setInterval(() => {
+
+        var now = new Date().getTime();
+
+        var remainingTime = endDate - now;
+
+        const second = 1000;
+
+        const minute = second * 60;
+
+        const hour = minute * 60;
+
+        const day = hour * 24;
+
+        daysLeft = Math.trunc(remainingTime / day);
+        hoursLeft = Math.trunc((remainingTime % day) / hour); 
+        minutesLeft = Math.trunc((remainingTime % hour) / minute);
+        secondsLeft = Math.trunc((remainingTime % minute) / second);
+        document.querySelector('#days').innerHTML = daysLeft + ' Jours';
+        document.querySelector('#hours').innerHTML = hoursLeft + ' Heures';
+        document.querySelector('#minutes').innerHTML = minutesLeft + ' Minutes';
+        document.querySelector('#seconds').innerHTML = secondsLeft + ' Secondes';
+
+
+        }, 1000);
+        </script>
+        </div>
+        
+        
     </head>
     <body>
     <header>
@@ -158,7 +241,7 @@
                     </li>
 
                     <li>
-                        <a href = "#">Séjour à Paris </a>
+                        <a href = "#">Sejour à Paris </a>
                         <ul> 
                             <li><a href="/logement">
                                 Réserver un logement</a>
@@ -225,3 +308,4 @@
         
     </body>
 </html>
+

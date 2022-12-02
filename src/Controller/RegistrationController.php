@@ -13,8 +13,11 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class RegistrationController extends AbstractController
-{
-    #[Route('/register', name: 'app_register')]
+{   
+    /**
+     * Undocumented function
+     * @Route("/register", name="app_register")
+     */
     public function register(Request $request, UserPasswordHasherInterface $userPasswordHasher, EntityManagerInterface $entityManager): Response
     {
         $user = new Users();
@@ -29,12 +32,12 @@ class RegistrationController extends AbstractController
                     $form->get('plainPassword')->getData()
                 )
             );
-
+            
             $entityManager->persist($user);
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('app_connexion');
+            return $this->redirectToRoute('app_statut');
         }
 
         return $this->render('registration/register.html.twig', [
