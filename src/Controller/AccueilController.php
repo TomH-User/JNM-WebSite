@@ -22,7 +22,7 @@ class AccueilController extends AbstractController
 
     public function info_jnm(): Response
     {
-        return $this->render('accueil/info_jnm.html.twig');
+        return $this->render('informations/info_jnm.html.twig');
 
     }
 
@@ -32,7 +32,7 @@ class AccueilController extends AbstractController
      */
     public function info_campus(): Response
     {
-        return $this->render('accueil/info_campus.html.twig');
+        return $this->render('informations/info_campus.html.twig');
     }
     /**
      * Undocumented function
@@ -40,7 +40,7 @@ class AccueilController extends AbstractController
      */
     public function inscription(): Response
     {
-        return $this->render('inscription/inscription.html.twig');
+        return $this->render('compte/inscription.html.twig');
     }
     /**
      * Undocumented function
@@ -48,7 +48,7 @@ class AccueilController extends AbstractController
      */
     public function connexion(): Response
     {
-        return $this->render('security/login.html.twig');
+        return $this->render('compte/login.html.twig');
     }
     /**
      * Undocumented function
@@ -56,7 +56,7 @@ class AccueilController extends AbstractController
      */
     public function deconnexion(): Response
     {
-        return $this->render('accueil/deconnexion.html.twig');
+        return $this->render('compte/deconnexion.html.twig');
     }
     /**
      * Undocumented function
@@ -64,7 +64,7 @@ class AccueilController extends AbstractController
      */
     public function logement(): Response
     {
-        return $this->render('accueil/logement.html.twig');
+        return $this->render('sejour/logement.html.twig');
     }
     /**
      * Undocumented function
@@ -72,7 +72,7 @@ class AccueilController extends AbstractController
      */
     public function transport(): Response
     {
-        return $this->render('accueil/transport.html.twig');
+        return $this->render('sejour/transport.html.twig');
     }
     /**
      * Undocumented function
@@ -80,7 +80,7 @@ class AccueilController extends AbstractController
      */
     public function liste_activite(): Response
     {
-        return $this->render('accueil/liste_activite.html.twig');
+        return $this->render('activite/liste_activite.html.twig');
     }
     /**
      * Undocumented function
@@ -96,7 +96,7 @@ class AccueilController extends AbstractController
      */
     public function stats(): Response
     {
-        return $this->render('accueil/stats.html.twig');
+        return $this->render('statistiques/stats.html.twig');
     }
     /**
      * Undocumented function
@@ -104,7 +104,7 @@ class AccueilController extends AbstractController
      */
     public function liste_partenaire(): Response
     {
-        return $this->render('accueil/liste_partenaire.html.twig');
+        return $this->render('partenaires/liste_partenaire.html.twig');
     }
     /**
      * Undocumented function
@@ -112,7 +112,7 @@ class AccueilController extends AbstractController
      */
     public function new_partenaire(): Response
     {
-        return $this->render('activite/partenaire.html.twig');
+        return $this->render('partenaires/partenaire.html.twig');
     }
     /**
      * Undocumented function
@@ -120,7 +120,7 @@ class AccueilController extends AbstractController
      */
     public function delete_partenaire(): Response
     {
-        return $this->render('accueil/delete_partenaire.html.twig');
+        return $this->render('partenaires/delete_partenaire.html.twig');
     }
 
     /**
@@ -129,6 +129,6 @@ class AccueilController extends AbstractController
 
     public function contact(): Response
     {
-        return $this->render('accueil/contact.html.twig');
+        return $this->render('contact/contact.html.twig');
     }
 }

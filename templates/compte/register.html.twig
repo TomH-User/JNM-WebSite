@@ -1,0 +1,85 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Register
+{% endblock %}
+
+
+{% block body %}
+    
+    <h1>Register</h1>
+
+        <div className = "auth-form-container">
+            <form className ="inscription-form">
+                {{ form_start(registrationForm) }}
+                {{ form_label(registrationForm.email) }} {{ form_widget(registrationForm.email) }} <br>
+                {{ form_label(registrationForm.plainPassword) }} {{ form_widget(registrationForm.plainPassword) }} <br>
+                {{ form_label(registrationForm.nom) }} {{ form_widget(registrationForm.nom) }} <br>
+                {{ form_label(registrationForm.prenom) }} {{ form_widget(registrationForm.prenom) }} <br>
+                {{ form_label(registrationForm.DateNaissance) }} {{ form_widget(registrationForm.DateNaissance) }} <br>
+	            {{ form_label(registrationForm.NumTel) }} {{ form_widget(registrationForm.NumTel) }} <br>
+                {{ form_label(registrationForm.adresse) }} {{ form_widget(registrationForm.adresse) }} <br>
+                {{ form_label(registrationForm.miage) }} {{ form_widget(registrationForm.miage) }} <br>
+                {{ form_label(registrationForm.region) }} {{ form_widget(registrationForm.region) }} <br>
+                {{ form_label(registrationForm.etatLogement) }} {{ form_widget(registrationForm.etatLogement) }} <br>
+                {{ form_label(registrationForm.EtatTransport) }} {{ form_widget(registrationForm.EtatTransport) }} <br>
+                <button type="submit" class="btn" id="button">S'enregistrer</button>
+                {{ form_end(registrationForm) }}
+            </form>
+            <p>Vous avez déja un compte ? <button className="link-btn"> Connectez vous ici </button>
+        </div>
+
+{% endblock %}
+
+{# {{ form_start(registrationForm) }}
+<div id="account">
+	<div class="form-group">
+		{{ form_label(registrationForm.email) }}
+		{{ form_widget(registrationForm.email) }}
+	</div>
+	<div>
+		{{ form_label(registrationForm.plainPassword) }}
+		{{ form_widget(registrationForm.plainPassword) }}
+	</div>
+</div>
+<div class="form-group">
+	{{ form_label(registrationForm.nom) }}
+	{{ form_widget(registrationForm.nom) }}
+</div>
+<div class="form-group">
+	{{ form_label(registrationForm.prenom) }}
+	{{ form_widget(registrationForm.prenom) }}
+</div>
+<div class="form-group">
+	{{ form_label(registrationForm.DateNaissance) }}
+	{{ form_widget(registrationForm.DateNaissance) }}
+</div>
+<div class="form-group">
+	{{ form_label(registrationForm.NumTel) }}
+	{{ form_widget(registrationForm.NumTel) }}
+</div>
+<div class="form-group">
+	{{ form_label(registrationForm.adresse) }}
+	{{ form_widget(registrationForm.adresse) }}
+</div>
+<div class="form-group">
+	{{ form_label(registrationForm.miage) }}
+	{{ form_widget(registrationForm.miage) }}
+</div>
+<div class="form-group">
+	{{ form_label(registrationForm.region) }}
+	{{ form_widget(registrationForm.region) }}
+</div>
+<div class="form-group">
+	{{ form_label(registrationForm.etatLogement) }}
+	{{ form_widget(registrationForm.etatLogement) }}
+</div>
+<div class="form-group">
+	{{ form_label(registrationForm.EtatTransport) }}
+	{{ form_widget(registrationForm.EtatTransport) }}
+</div>
+
+</div><br></br>
+
+
+{% endblock %} #}

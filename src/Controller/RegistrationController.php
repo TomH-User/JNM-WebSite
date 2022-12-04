@@ -40,7 +40,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_statut');
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('compte/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }

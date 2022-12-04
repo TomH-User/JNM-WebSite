@@ -3,10 +3,33 @@
 
  {% block body %} 
 
+     <section class="banner pt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Inscription</h1>
+                </div>
+                <div class="col-md-6">
+                
+                </div>
+            </div>
+        </div>
+    </section>
+
 <body>
-    <h1>
-        Bienvenue sur la page d'Inscription
-    </h1>
+
+    {{ form_start(monFormulaire) }}
+    {{ form_errors(monFormulaire) }}
+    {{ form_row(monFormulaire.email) }}
+    {{ form_row(monFormulaire.password) }}
+    {{ form_end(monFormulaire) }}
+</body>
+    
+{% endblock %} 
+
+
+
+
     {# {{ monFormulaire_start(monFormulaire) }}
         <div>
             {{ _label(monFormulaire.email) }}
@@ -50,13 +73,5 @@
         </div>    
     {{ monFormulaire_end(monFormulaire) }} #}
     {# {% if monFormulaire is defined %} #}
-    {{ form_start(monFormulaire) }}
-    {{ form_errors(monFormulaire) }}
 
-    {{ form_row(monFormulaire.email) }}
-    {{ form_row(monFormulaire.password) }}
-    {{ form_end(monFormulaire) }}
 {# {% endif %} #}
-</body>
-    
-{% endblock %} 

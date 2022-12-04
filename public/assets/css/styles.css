@@ -24,12 +24,15 @@
 	.navbar .nav-item:hover .dropdown-menu{ transition: .1s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
 }item .dropdown-menu{ margin-top:0; }
 
+/* Effet lorsque l'on passe la souris sur un element de navigation */
 .cc-navbar .nav-link {
     transition: padding-bottom .4s ease-in-out, border-color .3s ease;
 }
-
 .cc-navbar .nav-link:hover {
     padding-top: 5px;
-    /* border-top-color: var(--bs-teal); */
     border-bottom-color: white;
+}
+
+h1 {
+    color:white;
 }

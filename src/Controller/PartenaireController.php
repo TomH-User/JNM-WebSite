@@ -32,7 +32,7 @@ class PartenaireController extends AbstractController
             return $this->redirectToRoute('app_connexion');
         }
 
-        return $this->render('partenaire/partenaire.html.twig', [
+        return $this->render('partenaires/partenaire.html.twig', [
             'partenaireForm' => $form->createView(),
         ]);
     }
