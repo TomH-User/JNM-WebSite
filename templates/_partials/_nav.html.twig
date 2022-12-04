@@ -1,24 +1,24 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="cc-navbar navbar navbar-expand-lg navbar-dark">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="#">JNM 2023</a>
+		<a class="navbar-brand text-uppercase mx-4 py-3"><img src="/images/Logo_nanterre.png" width="30" height="30" alt="Logo" class="d-inline-block align-top">JNM 2023</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Accueil</a>
+				<li class="nav-item pe-3">
+					<a class="nav-link active" aria-current="page" href="/">Accueil</a>
 				</li>
-				<li class="nav-item dropdown">
+				<li class="nav-item dropdown pe-3">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Information JNM
+						Information
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a class="dropdown-item" href="#">Journée Nationale de la MIAGE 2023</a>
+							<a class="dropdown-item" href="/info_jnm">Information générale JNM 2023</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="#">Campus Paris Nanterre</a>
+							<a class="dropdown-item" href="/info_campus">Campus Paris Nanterre</a>
 						</li>
 						<li><hr class="dropdown-divider"></li>
 						<li>
@@ -26,86 +26,78 @@
 						</li>
 					</ul>
 				</li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown pe-3">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Compte
+						Séjour
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a class="dropdown-item" href="#">Inscription</a>
+							<a class="dropdown-item" href="/logement">Réserver un logement</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="#">Connexion</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Déconnexion</a>
+							<a class="dropdown-item" href="/transport">Réserver un transport</a>
 						</li>
 					</ul>
 				</li>
-                <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Sejour à Paris
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-							<a class="dropdown-item" href="#">Réserver un logement</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Réserver un transport</a>
-						</li>
-					</ul>
-				</li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown pe-3">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Activite
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a class="dropdown-item" href="#">Liste des Activités</a>
+							<a class="dropdown-item" href="/liste_activite">Liste des activités</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="#">Réserver une Activité</a>
+							<a class="dropdown-item" href="/new_activite">Réserver une activité</a>
 						</li>
 					</ul>
 				</li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown pe-3">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Statistique
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a class="dropdown-item" href="#">Liste des inscrits</a>
+							<a class="dropdown-item" href="/stats">Liste des inscrits</a>
 						</li>
 					</ul>
 				</li>
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown pe-3">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Partenaires
 					</a>
 					<ul class="dropdown-menu">
 						<li>
-							<a class="dropdown-item" href="#">Liste des Partenaires</a>
+							<a class="dropdown-item" href="/liste_partenaire">Liste des partenaires</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="#">Ajout d'un Partenaire</a>
+							<a class="dropdown-item" href="/partenaire1">Ajout d'un partenaire</a>
 						</li>
 						<li>
-							<a class="dropdown-item" href="#">Suppression d'un Partenaire</a>
+							<a class="dropdown-item" href="/delete_partenaire">Suppression d'un partenaire</a>
 						</li>
 					</ul>
 				</li>
-                
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-				<li class="nav-item">
+                <li class="nav-item dropdown pe-3">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					    Compte
+					</a>
+					<ul class="dropdown-menu">
+						<li>
+							<a class="dropdown-item" href="/register">Inscription</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="/login">Connexion</a>
+						</li>
+						<li>
+							<a class="dropdown-item" href="/logout">Déconnexion</a>
+						</li>
+					</ul>
+				</li>
+				<li class="nav-item pe-3">
 					<a class="nav-link disabled">Administrateur</a>
 				</li>
 			</ul>
-			<form class="d-flex" role="search">
-				<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-				<button class="btn btn-outline-success" type="submit">Search</button>
-			</form>
 		</div>
 	</div>
 </nav>

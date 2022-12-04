@@ -15,7 +15,7 @@ class ActiviteController extends AbstractController
 {
     /**
     * Undocumented function
-    * @Route("/activite1", name="app_activite")
+    * @Route("/new_activite", name="app_activite")
     */
     public function new(Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -34,7 +34,7 @@ class ActiviteController extends AbstractController
             return $this->redirectToRoute('app_connexion');
         }
 
-        return $this->render('activite/activite.html.twig', [
+        return $this->render('activite/new_activite.html.twig', [
             'activiteForm' => $form->createView(),
         ]);
     }

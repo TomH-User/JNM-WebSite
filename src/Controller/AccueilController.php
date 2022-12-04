@@ -14,7 +14,7 @@ class AccueilController extends AbstractController
 
     public function index(): Response
     {
-        return $this->render('accueil/index.html.twig');
+        return $this->render('accueil/accueil.html.twig');
     }
     /**
      *@Route("/info_jnm", name="app_info_jnm")
@@ -84,11 +84,11 @@ class AccueilController extends AbstractController
     }
     /**
      * Undocumented function
-     * @Route("/activite", name="app_activite")
+     * @Route("/new_activite", name="app_new_activite")
      */
     public function activite(): Response
     {
-        return $this->render('accueil/activite.html.twig');
+        return $this->render('activite/new_activite.html.twig');
     }
     /**
      * Undocumented function
@@ -108,11 +108,11 @@ class AccueilController extends AbstractController
     }
     /**
      * Undocumented function
-     * @Route("/partenaire", name="app_new_partenaire")
+     * @Route("/partenaire1", name="app_new_partenaire")
      */
     public function new_partenaire(): Response
     {
-        return $this->render('accueil/new_partenaire.html.twig');
+        return $this->render('activite/partenaire.html.twig');
     }
     /**
      * Undocumented function
