@@ -124,7 +124,11 @@ class AccueilController extends AbstractController
     {
         return $this->render('accueil/delete_partenaire.html.twig');
     }
-    #[Route('/contact', name: 'app_contact')]
+
+    /**
+     * @Route("/contact", name="app_contact")
+     */
+
     public function contact(): Response
     {
         return $this->render('accueil/contact.html.twig');
