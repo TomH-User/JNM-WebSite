@@ -1,0 +1,34 @@
+.banner {
+    text-align: left;
+    display: flex;
+    min-height: 100vh;
+    align-items: center;
+    justify-content: center;
+    color:white;
+    padding: 4%;
+}
+
+.auth-form-container, .connexion-form, .inscription-form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+
+  h1 {
+    text-align: center;
+  } 
+  
+#link-btn {
+    border: none;
+    background-color: white;
+    padding: 20px;
+    border-radius:10px;
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
+  }
+
+#button {
+    margin-bottom: 5%;
+}
+  
