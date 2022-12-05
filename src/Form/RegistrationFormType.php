@@ -107,22 +107,6 @@ class RegistrationFormType extends AbstractType
                     "class" => "form-control"
                 ]
             ])
-            // ->add('RefTransport', IntegerType::class, [
-            //     "attr" => [
-            //         "class" => "form-control"
-            //     ]
-            // ])
-            // ->add('RefLogement', IntegerType::class, [
-            //     "attr" => [
-            //         "class" => "form-control"
-            //     ]
-            // ])
-            // ->add('activites', IntegerType::class, [
-            //     "attr" => [
-            //         "class" => "form-control"
-            //     ]
-            // ])
-                // ->add('NomStaut', TextType::class,["attr" => ["class" => "form-control"]])
 
         ;
     }
