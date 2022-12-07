@@ -5,7 +5,6 @@
 
 
 {% block body %}
-
     <section class="banner">
         <div class="row">
             <div class="col">
@@ -24,14 +23,14 @@
                         {{ form_label(registrationForm.region) }}           {{ form_widget(registrationForm.region) }}        <br>
                         {{ form_label(registrationForm.etatLogement) }}     {{ form_widget(registrationForm.etatLogement) }}  <br>
                         {{ form_label(registrationForm.EtatTransport) }}    {{ form_widget(registrationForm.EtatTransport) }} <br>
-                        {{ form_end(registrationForm) }}
+                        {{ form_label(registrationForm.RefStatut) }}        {{ form_widget(registrationForm.RefStatut) }}     <br>
+                        {{ form_label(registrationForm.agreeTerms) }}       {{ form_widget(registrationForm.agreeTerms) }}    <br>
                         <button class="btn btn-light" type="submit" id="button">S'enregistrer</button>
+                        {{ form_end(registrationForm) }}
                     <p>Vous avez déja un compte ? <button class="buttonClass" id="link-btn"> <a href="/login">Connectez vous</a></button>
                     </form>
                  </div>
             </div>
         </div>
     </section>
-    
-
 {% endblock %}
