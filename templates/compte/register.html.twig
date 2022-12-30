@@ -5,12 +5,12 @@
 
 
 {% block body %}
-    <section class="banner">
-        <div class="row">
+    <section class="banner pb-5">
+        <div class="row justify-content-center">
             <div class="col">
                 <div class = "auth-form-container">
                     <form class ="inscription-form">
-                        <h1>Inscription</h1>
+                        <h1 class="mt-5 pt-5">Inscription</h1>
                         {{ form_start(registrationForm) }}
                         {{ form_label(registrationForm.email) }}            {{ form_widget(registrationForm.email) }}         <br>
                         {{ form_label(registrationForm.plainPassword) }}    {{ form_widget(registrationForm.plainPassword) }} <br>

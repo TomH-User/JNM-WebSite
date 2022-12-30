@@ -1,20 +1,43 @@
 {% extends 'base.html.twig' %}
+
 {% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/_info_campus.css')}}">{% endblock %}
 
 {% block body %}
 
-        <section class="banner pt-5">
+    <section class="banner pt-5">
+        <h1>Information sur le campus et la MIAGE Nanterre</h1>
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1>Page d'information sur le campus de Nanterre</h1>
-                    <iframe src="//www.youtube.com/embed/Pe-EhaCXYvU?ID_FICHE=1191418327132" width="500" height="500"><iframe>
-                </div>
-                <div class="col-md-6">
+            
+            <div class="row justify-content-center">
                 
+                {# élément #}
+                <div class="col-9 mt-2 mb-5">
+                    <iframe class="float" width="100%" height="160%" src="https://www.youtube.com/embed/Pe-EhaCXYvU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>
+                <div class="w-100"></div> 
+
+                {# élément #}
+                <div class="col-12 mt-5 p-5">
+                    <img src="/images/Logo_nanterre.png" width="50" height="50" alt="Logo" class="d-inline-block align-top"><h2>Le Campus</h2>                    
+                    <p> Située à l’ouest de Paris, au cœur d’un territoire d’une grande richesse sociale et urbaine, l’Université Paris Nanterre est une université pluridisciplinaire qui accueille chaque année plus de 35 000 étudiantes et étudiants. 
+                    Son offre de formation et ses activités de recherche couvrent le large éventail des sciences humaines et sociales, des lettres et des langues, des sciences juridiques, économiques et de gestion, de la technologie, 
+                    de la culture et des arts, des sciences de l’information et de la communication, des sciences pour l’ingénieur et des sciences et techniques des activités physiques et sportives.</p>
+                    <p>L’université est implantée dans le département des Hauts-de-Seine, sur les sites de Nanterre (campus « vert » à 20 min du centre de Paris), Ville-d’Avray, Saint-Cloud et sur le parvis de la Défense.</p>                    
+                    <p>L’établissement compte 1400 personnels enseignants, enseignants chercheurs, chercheurs et 970 personnels administratifs et techniques à l’appui de ses activités de formation (organisées en 10 UFR et instituts) et de recherche (6 écoles doctorales, 42 unités de recherche).</p>
+                </div>
+                <div class="w-100"></div>
+
+                {# élément #}
+                <div class="col-12 px-5">
+                <img src="/images/logo.png" width="70" height="70" alt="Logo" class="d-inline-block align-top">
+                    <h2>La MIAGE</h2>                    
+                    <p>Affichage des informations concernant la Miage de Nanterre (des chiffres, des stats…)</p>
+                </div>
+                <div class="w-100"></div>
+                
             </div>
         </div>
     </section>
+
     
 {% endblock %}
