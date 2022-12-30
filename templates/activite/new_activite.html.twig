@@ -5,6 +5,7 @@
 {% block body %}
     <h1>New Activite</h1>
     {{ form_start(activiteForm) }}
+    {% if activiteForm is defined %}
         <div class="form-group">
             {{ form_label(activiteForm.intitule) }}
             {{ form_widget(activiteForm.intitule) }}
@@ -22,6 +23,6 @@
                 }
             </style>
         </button>
-
+    {% endif %}
     {{ form_end(activiteForm) }}
 {% endblock %}
