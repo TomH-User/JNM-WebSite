@@ -6,12 +6,39 @@
     <section class="banner pt-4">
         <div class="container">
             <div class="row justify-content-center">
-            
+
+           
+
                 {# élément #}
                 <div class="col-12 p-2">
                     <h1>Bienvenue sur le site des Journées Nationales de la MIAGE 2023 </h1>
                 </div>
                 <div class="w-100"></div>
+                {# élément #}
+            
+            <script>
+
+                 const text= document.querySelector('h2');
+
+                function getChrono(){
+                    const now= new Date().getTime();
+                    const countdownDate=new Date('May 2,2023').getTime();
+               
+                    const distanceBase=countdownDate-now;
+                    const days = Math.floor(distanceBase/(1000*60*60*24));
+                    const hours = Math.floor((distanceBase%(1000*60*60*24))/(1000*60*60));
+                    const minutes = Math.floor((distanceBase%(1000*60*60*24))/(1000*60));
+                    const seconds = Math.floor((distanceBase%(1000*60*60*24))/(1000));
+            
+                    text.innerText = `${days}j ${hours}h ${minutes}m ${seconds}s`;
+                }
+                const countDownInterval = setInterval(() => {
+                    
+                    getChrono()
+                }, 1000);
+
+            </script>
+
 
                 {# élément #}
                 <div class="col-6 p-4">
