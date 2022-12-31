@@ -15,6 +15,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 
@@ -37,6 +38,7 @@ class RegistrationFormType extends AbstractType
             ])
             ->add('plainPassword', PasswordType::class, 
             [
+                "label"=>"Mot de passe ",
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => 
@@ -87,25 +89,70 @@ class RegistrationFormType extends AbstractType
                     "class" => "form-control"
                 ]
             ])
-            ->add('miage', TextType::class, [
-                "attr" => [
-                    "class" => "form-control"
+            ->add('miage', ChoiceType::class, [
+                "choices" => [
+                   
+                "Aix-Marseille"=>"Aix-Marseille",
+                "Amiens"=>"Amiens",
+                "Antilles"=>"Antilles",
+                "Bordeaux"=>"Bordeaux",
+                 "Grenoble"=> "Grenoble",
+                "Lille"=> "Lille",
+                "Lyon"=> "Lyon",
+                "Mulhouse"=> "Mulhouse",
+                "Nancy"=> "Nancy",
+                "Nantes"=> "Nantes",
+                "Nice"=> "Nice",
+                "Nouvelle-Calédonie"=> "Nouvelle-Calédonie",
+                "Orléans"=> "Orléans",
+                "Paris-Dauphine"=>"Paris-Dauphine",
+                "Paris-Descartes"=>"Paris-Descartes",
+                "Paris Nanterre"=>"Paris Nanterre",
+                "Paris Saclay Evry"=>"Paris Saclay Evry",
+                "Paris Saclay Orsay"=>"Paris Saclay Orsay",
+                "Paris Sorbonne"=> "Paris Sorbonne",
+                "Rennes"=> "Rennes" ,
+                "Toulouse" =>"Toulouse",
                 ]
             ])
+            
+            
             ->add('region', TextType::class, [
                 "attr" => [
                     "class" => "form-control"
                 ]
             ])
-            ->add('etatLogement', IntegerType::class, [
-                "attr" => [
-                    "class" => "form-control"
+            
+            ->add('etatLogement', ChoiceType::class, [
+                "label"=>"Avez vous réservé un logement ",
+                
+                "choices" => [
+                    "Aucune reservation" => 0,
+                    "En attente" =>1,
+                    "Déja reservé"=>2
                 ]
             ])
-            ->add('EtatTransport', IntegerType::class, [
-                "attr" => [
-                    "class" => "form-control"
+
+            ->add('EtatTransport', ChoiceType::class, [
+                "label"=>"Avez vous réservé un transport ",
+                "choices" => [
+                    "Aucune reservation" => 0,
+                    "En attente" =>1,
+                    "Déja reservé"=>2
                 ]
+            ])
+
+            ->add('RefStatut', ChoiceType::class, [
+                "label"=>"Votre situation ",
+                "choices" => [
+                    "Etudiant"=>"Etudiant",
+                    "Ancien diplômé"=>"Ancien diplômé",
+                    "Enseignant"=>"Enseignant",
+                    "Directeur d’une Miage"=>"Directeur d’une Miage",
+                    "Membre du BDE"=>"Membre du BDE",
+                    "Responsable d’un pôle"=>"Responsable d’un pôle",
+                    "Membre du CA de l’association"=>"Membre du CA de l’association",
+                ],
             ])
 
         ;
