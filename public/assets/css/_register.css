@@ -6,6 +6,7 @@
     justify-content: center;
     color:white;
     padding: 4%;
+    height: 1550px;
 }
 
 .auth-form-container, .connexion-form, .inscription-form {

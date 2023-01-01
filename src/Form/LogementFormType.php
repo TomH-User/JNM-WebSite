@@ -2,24 +2,29 @@
 
 namespace App\Form;
 
-use App\Entity\Statut;
+use App\Entity\Logement;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class StatutFormType extends AbstractType
+class LogementFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('NomStatut')
+            ->add('nomLogement')
+            ->add('adresse')
+            ->add('prix')
+            ->add('nbplaces')
+            ->add('Reserver',SubmitType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Statut::class,
+            'data_class' => Logement::class,
         ]);
     }
 }

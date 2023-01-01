@@ -2,53 +2,53 @@
 
 namespace App\Controller;
 
-use App\Entity\Video;
-use App\Form\VideoFormType;
+use App\Entity\Logement;
+use App\Form\LogementFormType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Persistence\ManagerRegistry;
 
-class VideoController extends AbstractController
+class LogementController extends AbstractController
 {
         /**
          * Undocumented function
-         * @Route("/new_video", name="app_new_video")
+         * @Route("/new_logement", name="app_new_logement")
          */
-        public function new_transport (ManagerRegistry $doctrine, Request $request): Response
+        public function new_logement (ManagerRegistry $doctrine, Request $request): Response
         {
             // Instanciation de l'entité concernée
-            $video = new Video();
+            $logement = new Logement();
 
             // Création de l'objet formulaire
-            $form = $this->createForm(VideoFormType::class, $video);
+            $form = $this->createForm(LogementFormType::class, $logement);
                 
             $form->handleRequest($request);
 
             if($form->isSubmitted()) {
                 $manager = $doctrine->getManager();
-                $manager->persist($video);
+                $manager->persist($logement);
 
                 $manager->flush();
 
-                $this->addFlash('success', $video->getLien()."a été ajouté avec succès");
+                $this->addFlash('success', $logement->getNomLogement()."a été ajouté avec succès");
 
                 return $this->redirectToRoute('app_accueil');
             }
             else {
-                return $this->render('video/new_video.html.twig', [
-                    'videoForm' => $form->createView()
+                return $this->render('sejour/new_logement.html.twig', [
+                    'logementForm' => $form->createView()
                 ]);
             }   
         }
 
     /**
      * Undocumented function
-     * @Route("/liste_video", name="app_liste_video")
+     * @Route("/liste_logement", name="app_liste_logement")
      */
-    public function liste_transport(): Response
+    public function liste_logement(): Response
     {
-        return $this->render('video/liste_video.html.twig');
+        return $this->render('sejour/liste_logement.html.twig');
     }
 }

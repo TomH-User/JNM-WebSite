@@ -78,7 +78,12 @@ class Video
 
         return $this;
     }
-    
+
+    public function __toString(): string
+    {
+        return $this->lien;
+    }
+
     // public function getEmail(): ?string
     // {
     //     return $this->email;
