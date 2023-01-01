@@ -16,8 +16,9 @@ use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -125,7 +126,6 @@ class RegistrationFormType extends AbstractType
             
             ->add('etatLogement', ChoiceType::class, [
                 "label"=>"Avez vous réservé un logement ",
-                
                 "choices" => [
                     "Aucune reservation" => 0,
                     "En attente" =>1,
@@ -142,17 +142,37 @@ class RegistrationFormType extends AbstractType
                 ]
             ])
 
-            ->add('RefStatut', ChoiceType::class, [
-                "label"=>"Votre situation ",
-                "choices" => [
-                    "Etudiant"=>"Etudiant",
-                    "Ancien diplômé"=>"Ancien diplômé",
-                    "Enseignant"=>"Enseignant",
-                    "Directeur d’une Miage"=>"Directeur d’une Miage",
-                    "Membre du BDE"=>"Membre du BDE",
-                    "Responsable d’un pôle"=>"Responsable d’un pôle",
-                    "Membre du CA de l’association"=>"Membre du CA de l’association",
+            // ->add('RefStatut', ChoiceType::class, [
+            //     "label"=>"Votre situation ",
+            //     "choices" => [
+            //         "Etudiant"=>"Etudiant",
+            //         "Ancien diplômé"=>"Ancien diplômé",
+            //         "Enseignant"=>"Enseignant",
+            //         "Directeur d’une Miage"=>"Directeur d’une Miage",
+            //         "Membre du BDE"=>"Membre du BDE",
+            //         "Responsable d’un pôle"=>"Responsable d’un pôle",
+            //         "Membre du CA de l’association"=>"Membre du CA de l’association",
+            //     ],
+            // ])
+            
+            ->add('RefStatut', CollectionType::class, [
+                "label"=>"Votre situation",
+                'entry_type'   => ChoiceType::class,
+                'entry_options'  => [
+                    'choices'  => [
+                        "Etudiant"=>"Etudiant",
+                        "Ancien diplômé"=>"Ancien diplômé",
+                        "Enseignant"=>"Enseignant",
+                        "Directeur d’une Miage"=>"Directeur d’une Miage",
+                        "Membre du BDE"=>"Membre du BDE",
+                        "Responsable d’un pôle"=>"Responsable d’un pôle",
+                        "Membre du CA de l’association"=>"Membre du CA de l’association",
+                    ],
                 ],
+            ])
+
+            ->add('Enregistrement', SubmitType::class, [
+                "label"=>"S'inscrire"
             ])
 
         ;

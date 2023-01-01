@@ -6,30 +6,25 @@
 
 {% block body %}
     <section class="banner pb-5">
+        <h1 class="">S'inscrire</h1>
+        {{ form_start(registrationForm) }}
         <div class="row justify-content-center">
             <div class="col-6">
-                <div class = "auth-form-container">
-                    <form class ="inscription-form">
-                        <h1 class="">S'inscrire</h1>
-                        {{ form_start(registrationForm) }}
-                        {{ form_label(registrationForm.email) }}            {{ form_widget(registrationForm.email) }}         <br>
-                        {{ form_label(registrationForm.plainPassword) }}    {{ form_widget(registrationForm.plainPassword) }} <br>
-                        {{ form_label(registrationForm.nom) }}              {{ form_widget(registrationForm.nom) }}           <br>
-                        {{ form_label(registrationForm.prenom) }}           {{ form_widget(registrationForm.prenom) }}        <br>
-                        {{ form_label(registrationForm.DateNaissance) }}    {{ form_widget(registrationForm.DateNaissance) }} <br>
-                        {{ form_label(registrationForm.NumTel) }}           {{ form_widget(registrationForm.NumTel) }}        <br>
-                        {{ form_label(registrationForm.adresse) }}          {{ form_widget(registrationForm.adresse) }}       <br>
-                        {{ form_label(registrationForm.miage) }}            {{ form_widget(registrationForm.miage) }}         <br>
-                        {{ form_label(registrationForm.region) }}           {{ form_widget(registrationForm.region) }}        <br>
-                        {{ form_label(registrationForm.etatLogement) }}     {{ form_widget(registrationForm.etatLogement) }}  <br>
-                        {{ form_label(registrationForm.EtatTransport) }}    {{ form_widget(registrationForm.EtatTransport) }} <br>
-                        {{ form_label(registrationForm.RefStatut) }}        {{ form_widget(registrationForm.RefStatut) }}     <br>
-                        {{ form_label(registrationForm.agreeTerms) }}       {{ form_widget(registrationForm.agreeTerms) }}    <br>
-                        <button class="btn btn-light" type="submit" id="button">S'enregistrer</button>
-                        {{ form_end(registrationForm) }}
-                    <p>Vous avez déja un compte ? <button class="buttonClass" id="link-btn"> <a href="/login">Connectez vous</a></button>
-                    </form>
-                 </div>
+                {{ form_label(registrationForm.email) }}            {{ form_widget(registrationForm.email) }}         <br>
+                {{ form_label(registrationForm.plainPassword) }}    {{ form_widget(registrationForm.plainPassword) }} <br>
+                {{ form_label(registrationForm.nom) }}              {{ form_widget(registrationForm.nom) }}           <br>
+                {{ form_label(registrationForm.prenom) }}           {{ form_widget(registrationForm.prenom) }}        <br>
+                {{ form_label(registrationForm.DateNaissance) }}    {{ form_widget(registrationForm.DateNaissance) }} <br>
+                {{ form_label(registrationForm.NumTel) }}           {{ form_widget(registrationForm.NumTel) }}        <br>
+                {{ form_label(registrationForm.adresse) }}          {{ form_widget(registrationForm.adresse) }}       <br>
+                {{ form_label(registrationForm.miage) }}            {{ form_widget(registrationForm.miage) }}         <br>
+                {{ form_label(registrationForm.region) }}           {{ form_widget(registrationForm.region) }}        <br>
+                {{ form_label(registrationForm.etatLogement) }}     {{ form_widget(registrationForm.etatLogement) }}  <br>
+                {{ form_label(registrationForm.EtatTransport) }}    {{ form_widget(registrationForm.EtatTransport) }} <br>
+                {# {{ form_label(registrationForm.RefStatut) }}        {{ form_widget(registrationForm.RefStatut) }}     <br> #}
+                {{ form_label(registrationForm.agreeTerms) }}       {{ form_widget(registrationForm.agreeTerms) }}    <br>
+                {{ form_end(registrationForm) }}
+                <p>Vous avez déja un compte ? <button class="buttonClass" id="link-btn"> <a href="/login">Connectez vous</a></button>
             </div>
         </div>
     </section>

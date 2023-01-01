@@ -22,6 +22,7 @@ class RegistrationController extends AbstractController
     {
         $user = new Users();
         $form = $this->createForm(RegistrationFormType::class, $user);
+        $form->remove('RefStatut'); // pour l'instant on ne considère pas refstatut
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -37,7 +38,7 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('app_statut');
+            return $this->redirectToRoute('app_accueil');
         }
 
         return $this->render('compte/register.html.twig', [
