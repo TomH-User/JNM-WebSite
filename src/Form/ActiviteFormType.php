@@ -16,7 +16,7 @@ class ActiviteFormType extends AbstractType
         $builder
             ->add('intitule')
             ->add('Date', DateType::class)
-            ->add('Inscription', SubmitType::class)
+            ->add('Ajouter', SubmitType::class)
         ;
     }
 
