@@ -17,7 +17,7 @@ class LogementFormType extends AbstractType
             ->add('adresse')
             ->add('prix')
             ->add('nbplaces')
-            ->add('Reserver',SubmitType::class)
+            ->add('Ajouter',SubmitType::class)
         ;
     }
 

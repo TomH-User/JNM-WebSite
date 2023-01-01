@@ -16,7 +16,7 @@ class TransportFormType extends AbstractType
         $builder
             ->add('offre')
             ->add('prix')
-            ->add('Reserver', SubmitType::class)
+            ->add('Ajouter', SubmitType::class)
         ;
     }
 
