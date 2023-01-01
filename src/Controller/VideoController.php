@@ -23,6 +23,8 @@ class VideoController extends AbstractController
 
             // Création de l'objet formulaire
             $form = $this->createForm(VideoFormType::class, $video);
+            $form->remove('refUtilisateur');
+            $form->remove('nbVotes');
                 
             $form->handleRequest($request);
 
