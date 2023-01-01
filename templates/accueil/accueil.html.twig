@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/_accueil.css')}}">{% endblock %}
+{% block javascripts %}<script src="https://cdn.jsdelivr.net/npm/axentix@2.2.1/dist/axentix.min.js"></script>{% endblock %}
 
 {% block body %}
 
@@ -7,64 +8,46 @@
         <div class="container">
             <div class="row justify-content-center">
 
-           
-
                 {# élément #}
-                <div class="col-12 p-2">
+                <div class="col-12 p-4">
                     <h1>Bienvenue sur le site des Journées Nationales de la MIAGE 2023 </h1>
                 </div>
                 <div class="w-100"></div>
+
                 {# élément #}
-            
-            <script>
-
-                 const text= document.querySelector('h2');
-
-                function getChrono(){
-                    const now= new Date().getTime();
-                    const countdownDate=new Date('May 2,2023').getTime();
-               
-                    const distanceBase=countdownDate-now;
-                    const days = Math.floor(distanceBase/(1000*60*60*24));
-                    const hours = Math.floor((distanceBase%(1000*60*60*24))/(1000*60*60));
-                    const minutes = Math.floor((distanceBase%(1000*60*60*24))/(1000*60));
-                    const seconds = Math.floor((distanceBase%(1000*60*60*24))/(1000));
-            
-                    text.innerText = `${days}j ${hours}h ${minutes}m ${seconds}s`;
-                }
-                const countDownInterval = setInterval(() => {
-                    
-                    getChrono()
-                }, 1000);
-
-            </script>
-
+                <div class="col-5 p-4">
+                    <h3>La JNM 2023 commencera dans : </h3>
+                </div>
+                <div class="w-100"></div>
 
                 {# élément #}
                 <div class="col-6 p-4">
-                    <h2>Titre</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus recusandae ea similique vero tempora minima quibusdam veniam magni harum saepe itaque est aspernatur architecto, odio cum aperiam nobis? Quaerat, expedita.</p>
+                    <h3 id="days"></h3>
                 </div>
 
                 {# élément #}
-                <div class="col-6 p-4">
-                    <h2>Titre</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus recusandae ea similique vero tempora minima quibusdam veniam magni harum saepe itaque est aspernatur architecto, odio cum aperiam nobis? Quaerat, expedita.</p>
+                <div class="col-7 p-4">
+                    <p id="informations">Si vous souhaitez obtenir plus d'informations concernant la JNM 2023, vous pouvez cliquez <a href="\info_jnm">ici</a></p>
                 </div>
 
-                {# élément #}
-                <div class="col-6 p-4">
-                    <h2>Titre</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus recusandae ea similique vero tempora minima quibusdam veniam magni harum saepe itaque est aspernatur architecto, odio cum aperiam nobis? Quaerat, expedita.</p>
-                </div>
-
-                {# élément #}
-                <div class="col-6 p-4">
-                    <h2>Titre</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus recusandae ea similique vero tempora minima quibusdam veniam magni harum saepe itaque est aspernatur architecto, odio cum aperiam nobis? Quaerat, expedita.</p>
-                </div>
             </div>
         </div>
     </section>
+    <script>
+        var endDate = new Date('Mar 20, 2023').getTime();
+        var countDownTimer = setInterval(() => {
+        var now = new Date().getTime();
+        var remainingTime = endDate - now;
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+        daysLeft = Math.trunc(remainingTime / day);
+        hoursLeft = Math.trunc((remainingTime % day) / hour); 
+        minutesLeft = Math.trunc((remainingTime % hour) / minute);
+        secondsLeft = Math.trunc((remainingTime % minute) / second);
+        document.querySelector('#days').innerHTML = daysLeft + ' Jours ' + hoursLeft + ' Heures ' + minutesLeft + ' Minutes ' + secondsLeft + ' Secondes';
+        }, 1000);
+    </script>
 
 {% endblock %}
