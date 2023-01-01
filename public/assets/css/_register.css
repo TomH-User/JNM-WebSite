@@ -1,12 +1,6 @@
 .banner {
-    text-align: left;
-    display: flex;
-    min-height: 100vh;
-    align-items: center;
-    justify-content: center;
-    color:white;
     padding: 4%;
-    height: 1550px;
+    height: 1750px;
 }
 
 .auth-form-container, .connexion-form, .inscription-form {
@@ -16,8 +10,12 @@
   }
 
   h1 {
-    text-align: center;
-  } 
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    width: 500px;
+}
+
   
 #link-btn {
     border: none;
