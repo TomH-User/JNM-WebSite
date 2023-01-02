@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use App\Form\TestUsersFormType;
+use App\Form\UsersFormType;
 
 class PartenaireController extends AbstractController
 {
@@ -63,39 +63,5 @@ class PartenaireController extends AbstractController
         {
             return $this->render('partenaires/delete_partenaire.html.twig');
         }
-
-
-
-        /**
-         * @Route("/new_user", name="app_new_user")
-         */
-
-         // Cette fonction est un test d'entrainement, elle n'a rien avoir avec le projet
-         public function newUser (ManagerRegistry $doctrine, Request $request): Response
-        {
-            // Instanciation de l'entité concernée
-            $user = new Users();
-
-            // Création de l'objet formulaire
-            $form = $this->createForm(TestUsersFormType::class, $user);
-                
-            $form->handleRequest($request);
-
-            if($form->isSubmitted()) {
-                $manager = $doctrine->getManager();
-                $manager->persist($user);
-
-                $manager->flush();
-
-                $this->addFlash('success', $user->getPrenom()."a été ajouté avec succès");
-
-                return $this->redirectToRoute('app_accueil');
-            }
-            else {
-                return $this->render('compte/new_user.html.twig', [
-                    'userForm' => $form->createView()
-                ]);
-            }   
-        } 
 
 }
