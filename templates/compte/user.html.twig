@@ -7,8 +7,8 @@
         <section class="banner pt-5">
         <div class="container">
             <div class="row justify-content-center">
-                {% for message in app.flashes('success') %}
-                    <div class="alert-success mt-4">
+                {% for message in app.flashes('success') %}    
+                    <div class="alert alert-success p-4 mt-4">
                         {{ message }}
                     </div>
                 {% endfor %}
@@ -22,9 +22,9 @@
                     <p>Logement  : {{app.user.etatLogement}}</p>
                     <p>Transport : {{app.user.EtatTransport}}</p>
                     {# {{ form(userForm)}} #}
-                <br><br>
-                <h3>Modifier mon profil</h3>
-                <p>Si vous souhaitez modifier votre profil c'est <a href="\edit_user">ici</a></p>
+                <br>
+                <p><a href="\edit_user"><button type="button" class="btn btn-primary">Modifier mon profil</button></a></p>
+                <p><a href="\edit_pass"><button type="button" class="btn btn-primary">Modifier mon Mot de passe</button></a></p>
                 </div>
             </div>
         </div>
