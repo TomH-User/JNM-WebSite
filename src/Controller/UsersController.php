@@ -10,6 +10,10 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Guard\PasswordAuthenticatedInterface;
 
 class UsersController extends AbstractController
 {
@@ -26,7 +30,7 @@ class UsersController extends AbstractController
          * @Route("/edit_user", name="app_edit_user")
          */
 
-         public function modifier_user (ManagerRegistry $doctrine, Request $request): Response
+         public function edit_user (ManagerRegistry $doctrine, Request $request): Response
         {
             // Instanciation de l'entité concernée
             $user = $this->getUser();
@@ -42,7 +46,7 @@ class UsersController extends AbstractController
 
                 $manager->flush();
 
-                $this->addFlash('success', "Profil mis à jour");
+                $this->addFlash('success', "Votre profil a bien été mis à jour");
 
                 return $this->redirectToRoute('app_user');
             }
@@ -51,6 +55,31 @@ class UsersController extends AbstractController
                     'userForm' => $form->createView()
                 ]);
             }   
+        } 
+
+        /**
+         * @Route("/edit_pass", name="app_edit_pass")
+         */
+         public function edit_pass (ManagerRegistry $doctrine, Request $request, UserPasswordHasherInterface $passwordHasher): Response
+        {
+            if ($request->isMethod('POST')) {
+                $manager = $doctrine->getManager();
+                $user = $this->getUser();
+
+                if ($request->request->get('pass') == $request->request->get('pass2')) {
+                    $user->setPassword($passwordHasher->hashPassword($user, $request->get('pass')));
+                    $manager->flush();
+                    $this->addFlash('message', 'Mot de passe mi à jour ave succès');
+
+                    return $this->redirectToRoute('app_user');
+                } 
+                else {
+                    $this->addFlash('error', 'Les deux mots de passe ne sont pas identiques');
+                }
+            }
+
+            return $this->render('compte/edit_pass.html.twig');
+            
         } 
 
 
