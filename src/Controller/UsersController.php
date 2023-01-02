@@ -42,7 +42,7 @@ class UsersController extends AbstractController
 
                 $manager->flush();
 
-                $this->addFlash('success', "Profil mis à jour");
+                $this->addFlash('success', "Votre profil a bien été mis à jour");
 
                 return $this->redirectToRoute('app_user');
             }
