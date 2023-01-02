@@ -6,10 +6,22 @@
 
     <section class="banner pt-5">
         <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h1> Liste des transports proposés</h1>
+            <div class="row justitfy-content-center">
+                <div class="col-6 mb-4">
+                    <h1> Liste des transports proposées</h1>
                 </div>
+                    {% for transport in transports %}
+                    <div class="card-centrer">
+                        <div class="col-12 mx-4 my-4 pb-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Offre : {{transport.offre}}</h5>
+                                    <p class="card-text">Prix : {{transport.prix}} euros</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
             </div>
         </div>
     </section>
