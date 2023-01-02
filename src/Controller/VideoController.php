@@ -18,7 +18,7 @@ class VideoController extends AbstractController
          * Undocumented function
          * @Route("/new_video", name="app_new_video")
          */
-        public function new_video (ManagerRegistry $doctrine, Request $request, Security $security): Response
+        public function new_video (ManagerRegistry $doctrine, Request $request): Response
         {
             // Instanciation de l'entité concernée
             $video = new Video();
@@ -27,7 +27,6 @@ class VideoController extends AbstractController
             $form = $this->createForm(VideoFormType::class, $video);
             $form->remove('refUtilisateur');
             $form->remove('nbVotes');
-            $video->setrefUtilisateur($this->security->getUser());
                 
             $form->handleRequest($request);
 
