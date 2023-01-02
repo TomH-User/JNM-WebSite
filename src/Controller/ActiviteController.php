@@ -4,12 +4,14 @@ namespace App\Controller;
 
 use App\Entity\Activites;
 use App\Form\ActiviteFormType;
+use App\Repository\ActivitesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Persistence\ManagerRegistry;
+
 
 class ActiviteController extends AbstractController
 {
@@ -48,8 +50,10 @@ class ActiviteController extends AbstractController
          * Undocumented function
          * @Route("/liste_activite", name="app_liste_activite")
          */
-        public function liste_activite(): Response
+        public function liste_activite(ActivitesRepository $activitesRepository): Response
         {
-            return $this->render('activite/liste_activite.html.twig');
+            return $this->render('activite/liste_activite.html.twig', [
+                'activites' => $activitesRepository->findBy([], ['Date' => 'asc'])
+            ]);
         }
 }
