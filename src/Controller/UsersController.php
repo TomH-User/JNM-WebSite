@@ -67,10 +67,10 @@ class UsersController extends AbstractController
                 $user = $this->getUser();
 
                 if ($request->request->get('pass') == $request->request->get('pass2')) {
-                    $user->setPassword($passwordHasher->hashPassword($user, $request->get('pass')));
+                    $user->setPassword($passwordHasher->hashPassword($user, $request->get('pass'))); // Met une erreur mais fonctionne correctement
                     $manager->flush();
-                    $this->addFlash('message', 'Mot de passe mi à jour ave succès');
 
+                    $this->addFlash('message', 'Mot de passe mis à jour ave succès');
                     return $this->redirectToRoute('app_user');
                 } 
                 else {
