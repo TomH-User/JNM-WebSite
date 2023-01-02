@@ -102,6 +102,11 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $RefStatut;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Statut;
+
     public function __construct()
     {
         if($this->getEmail()=='admin@gmail.com') $this->setRoles(["ROLE_ADMIN"]);
@@ -387,5 +392,17 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     public function __toString(): string
     {
         return $this->nom;
+    }
+
+    public function getStatut(): ?string
+    {
+        return $this->Statut;
+    }
+
+    public function setStatut(?string $Statut): self
+    {
+        $this->Statut = $Statut;
+
+        return $this;
     }
 }

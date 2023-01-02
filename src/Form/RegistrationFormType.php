@@ -142,18 +142,19 @@ class RegistrationFormType extends AbstractType
                 ]
             ])
 
-            // ->add('RefStatut', ChoiceType::class, [
-            //     "label"=>"Votre situation ",
-            //     "choices" => [
-            //         "Etudiant"=>"Etudiant",
-            //         "Ancien diplômé"=>"Ancien diplômé",
-            //         "Enseignant"=>"Enseignant",
-            //         "Directeur d’une Miage"=>"Directeur d’une Miage",
-            //         "Membre du BDE"=>"Membre du BDE",
-            //         "Responsable d’un pôle"=>"Responsable d’un pôle",
-            //         "Membre du CA de l’association"=>"Membre du CA de l’association",
-            //     ],
-            // ])
+            ->add('Statut', ChoiceType::class, [
+                "label"=>"Votre situation ",
+                "choices" => [
+                    "Etudiant"=>"Etudiant",
+                    "Ancien diplômé"=>"Ancien diplômé",
+                    "Enseignant"=>"Enseignant",
+                    "Directeur d’une Miage"=>"Directeur d’une Miage",
+                    "Membre du BDE"=>"Membre du BDE",
+                    "Responsable d’un pôle"=>"Responsable d’un pôle",
+                    "Membre du CA de l’association"=>"Membre du CA de l’association",
+                ],
+            ])
+
             
             ->add('RefStatut', CollectionType::class, [
                 "label"=>"Votre situation",

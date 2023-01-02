@@ -23,7 +23,7 @@ class RegistrationController extends AbstractController
     {
         $user = new Users();
         $form = $this->createForm(RegistrationFormType::class, $user);
-        // $form->remove('RefStatut'); // pour l'instant on ne considère pas refstatut
+        $form->remove('RefStatut'); // pour l'instant on ne considère pas refstatut
         $form->handleRequest($request);
         
         if ($form->isSubmitted() && $form->isValid()) {
