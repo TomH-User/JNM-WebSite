@@ -74,4 +74,9 @@ class Statut
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->NomStatut;
+    }
 }

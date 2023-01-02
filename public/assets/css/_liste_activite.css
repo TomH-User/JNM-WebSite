@@ -1,0 +1,15 @@
+.card {
+    width: 14rem; 
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5));
+    color: rgb(246, 237, 237);
+    text-align: center;
+    margin-left: 35%;
+    margin-right: auto;
+    width: 20%;
+    transition: padding-bottom .4s ease-in-out, border-color .3s ease;
+    padding-top: 5px;
+    border-bottom-color: white;
+    border-left-color: white;
+    border-top-color: white;
+    border-right-color: white;   
+}

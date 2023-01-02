@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/_accueil.css')}}">{% endblock %}
+{% block javascripts %}<script src="https://cdn.jsdelivr.net/npm/axentix@2.2.1/dist/axentix.min.js"></script>{% endblock %}
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+
+    <section class="banner pt-4">
+        <div class="container">
+            <div class="row justify-content-center">
+            
+                {# élément #}
+                {% if not app.user %}
+                <div class="col-12 p-4">
+                    <h1>Bienvenue sur le site des Journées Nationales de la MIAGE 2023 </h1>
+                </div>
+                <div class="w-100"></div>
+                {% else %}
+                <div class="col-12 p-4">
+                    <h1>Bievenue {{ app.user.prenom}} ! </h1>
+                </div>
+                <div class="w-100"></div>
+
+                {% endif %}
+
+                {# élément #}
+                <div class="col-5 p-4">
+                    <h3>La JNM 2023 commencera dans : </h3>
+                </div>
+                <div class="w-100"></div>
+
+                {# élément #}
+                <div class="col-6 p-4">
+                    <h3 id="days"></h3>
+                </div>
+
+                {# élément #}
+                <div class="col-7 p-4">
+                    <p id="informations">Si vous souhaitez obtenir plus d'informations concernant la JNM 2023, vous pouvez cliquez <a href="\info_jnm">ici</a></p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <script>
+        var endDate = new Date('Mar 20, 2023').getTime();
+        var countDownTimer = setInterval(() => {
+        var now = new Date().getTime();
+        var remainingTime = endDate - now;
+        const second = 1000;
+        const minute = second * 60;
+        const hour = minute * 60;
+        const day = hour * 24;
+        daysLeft = Math.trunc(remainingTime / day);
+        hoursLeft = Math.trunc((remainingTime % day) / hour); 
+        minutesLeft = Math.trunc((remainingTime % hour) / minute);
+        secondsLeft = Math.trunc((remainingTime % minute) / second);
+        document.querySelector('#days').innerHTML = daysLeft + ' Jours ' + hoursLeft + ' Heures ' + minutesLeft + ' Minutes ' + secondsLeft + ' Secondes';
+        }, 1000);
+    </script>
+
+{% endblock %}

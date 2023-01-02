@@ -1,0 +1,33 @@
+.banner {
+    padding: 4%;
+    height: 1750px;
+}
+
+.auth-form-container, .connexion-form, .inscription-form {
+    display: flex;
+    flex-direction: column;
+    color: white;
+  }
+
+  h1 {
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5%;
+    width: 500px;
+}
+
+  
+#link-btn {
+    border: none;
+    background-color: white;
+    padding: 20px;
+    border-radius:10px;
+    cursor: pointer;
+    color: black;
+    text-decoration: underline;
+  }
+
+#button {
+    margin-bottom: 5%;
+}
+  

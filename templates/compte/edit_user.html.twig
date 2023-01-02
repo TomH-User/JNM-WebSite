@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/_edit_user.css')}}">{% endblock %}
+{% block title %}Gestion Users{% endblock %}
+
+{% block body %}
+
+        <section class="banner pt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-5">
+                    <h1>Modification de mon profil</h1>
+                    {{ form(userForm)}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,201 @@
+<nav class="cc-navbar navbar navbar-expand-lg navbar-dark">
+	<div class="container-fluid">
+		<a href="/" class="navbar-brand text-uppercase mx-4 py-3"><img src="/images/Logo_nanterre.png" width="30" height="30" alt="Logo" class="d-inline-block align-top">JNM 2023</a>
+		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item pe-3">
+					<a class="nav-link active" aria-current="page" href="/">Accueil</a>
+				</li>
+				<li class="nav-item dropdown pe-3">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Informations
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark ">
+						<li>
+							<a class="dropdown-item" href="/info_jnm">Informations - JNM 2023</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" href="/info_campus">Campus & MIAGE Paris Nanterre</a>
+						</li>
+					</ul>
+				</li>
+                <li class="nav-item dropdown pe-3">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Séjour
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						<li>
+							<a class="dropdown-item" href="/liste_logement">Liste des logements</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" href="/liste_transport">Liste des transports</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+
+						{% if is_granted('ROLE_ADMIN') %}
+						<li>
+							<a class="dropdown-item" href="/new_logement">Gestion des logements</a>
+						</li>
+						{% else %}
+						<li>
+						<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Accessible à l'administrateur">
+							<a class="dropdown-item disabled" data-toggle="tooltip" style="pointer-events: none;" data-placement="bottom" href="#">Gestion des logements</a>
+						</span>
+						</li>
+						{% endif %}
+						<li><hr class="dropdown-divider"></li>
+						{% if is_granted('ROLE_ADMIN') %}
+						<li>
+							<a class="dropdown-item" href="/new_transport">Gestion des transports</a>
+						</li>
+						{% else %}
+						<li>
+						<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Accessible à l'administrateur">
+							<a class="dropdown-item disabled" data-toggle="tooltip" style="pointer-events: none;" data-placement="bottom" href="#">Gestion des transports</a>
+						</span>
+						</li>
+						{% endif %}
+					</ul>
+				</li>
+                <li class="nav-item dropdown pe-3">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Activite
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						<li>
+							<a class="dropdown-item" href="/liste_activite">Liste des activités</a>
+						</li>
+						{% if app.user %}
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" href="#">S'inscrire à une activité</a>
+						</li>
+						{% endif %}
+						<li><hr class="dropdown-divider"></li>
+						{% if is_granted('ROLE_ADMIN') %}
+						<li>
+							<a class="dropdown-item" href="/new_activite">Gestion des activités</a>
+						</li>
+						{% else %}
+						<li>
+						<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Accessible à l'administrateur">
+							<a class="dropdown-item disabled" data-toggle="tooltip" style="pointer-events: none;" data-placement="bottom" href="#">Gestion des activités</a>
+						</span>
+						</li>
+						{% endif %}
+					</ul>
+				</li>
+                <li class="nav-item dropdown pe-3">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Statistiques
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						<li>
+							<a class="dropdown-item" href="/stats">Statistiques Participants</a>
+						</li>
+					</ul>
+				</li>
+                <li class="nav-item dropdown pe-3">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+						Partenaires
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						<li>
+							<a class="dropdown-item" href="/liste_partenaire">Informations Partenaires</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						{% if is_granted('ROLE_ADMIN') %}
+						<li>
+							<a class="dropdown-item" href="/new_partenaire">Gestion des partenaires</a>
+						</li>
+						{% else %}
+						<li>
+						<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Accessible à l'administrateur">
+							<a class="dropdown-item disabled" data-toggle="tooltip" style="pointer-events: none;" data-placement="bottom" href="#">Gestion des partenaires</a>
+						</span>
+						</li>
+						{% endif %}
+					</ul>
+				</li>
+       
+				<li class="nav-item dropdown pe-3">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					    Concours Vidéo
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+					{% if app.user %}
+						<li>
+							<a class="dropdown-item" href="/new_video">Publier une vidéo</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+					{% endif %}
+						<li>
+							<a class="dropdown-item" href="/liste_video">Liste vidéos & Votes</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						{% if is_granted('ROLE_ADMIN') %}
+						<li>
+							<a class="dropdown-item" href="#">Gestion des vidéos</a>
+						</li>
+						{% else %}
+						<li>
+						<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Accessible à l'administrateur">
+							<a class="dropdown-item disabled" data-toggle="tooltip" style="pointer-events: none;" data-placement="bottom" href="#">Gestion des vidéos</a>
+						</span>
+						</li>
+						{% endif %}
+					</ul>
+				</li>
+				<li class="nav-item dropdown pe-3">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					    Compte
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						{% if not app.user %}
+						<li>
+							<a class="dropdown-item" href="/register">S'inscrire</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" href="/login">Se connecter</a>
+						</li>
+						{# <li><hr class="dropdown-divider"></li> #}
+						{% endif %}
+						{% if app.user %}
+						<li>
+							<a class="dropdown-item" href="/user">Mon compte</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" href="/logout">Se déconnecter</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						{% endif %}
+						{% if is_granted('ROLE_ADMIN') %}
+						<li>
+							<a class="dropdown-item" href="#">Gestion des utilisateurs</a>
+						</li>
+						{% else %}
+						<li><hr class="dropdown-divider"></li>
+						<li>
+						<span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Accessible à l'administrateur">
+							<a class="dropdown-item disabled" data-toggle="tooltip" style="pointer-events: none;" data-placement="bottom" href="#">Gestion des utilisateurs</a>
+						</span>
+						</li>
+						{% endif %}
+
+					</ul>
+				</li>
+
+				<li class="nav-item pe-3">
+					<a class="nav-link" href="/contact">Contacts</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>

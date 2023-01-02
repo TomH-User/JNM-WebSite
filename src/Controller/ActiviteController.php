@@ -3,39 +3,57 @@
 namespace App\Controller;
 
 use App\Entity\Activites;
-use App\Entity\Users;
 use App\Form\ActiviteFormType;
+use App\Repository\ActivitesRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Doctrine\Persistence\ManagerRegistry;
+
 
 class ActiviteController extends AbstractController
 {
-    /**
-    * Undocumented function
-    * @Route("/activite1", name="app_activite")
-    */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $activite = new Activites();
-        $form = $this->createForm(ActiviteFormType::class, $activite);
-        $form->handleRequest($request);
+        /**
+         * Undocumented function
+         * @Route("/new_activite", name="app_new_activite")
+         */
+        public function new_activite (ManagerRegistry $doctrine, Request $request): Response
+        {
+            // Instanciation de l'entité concernée
+            $activite = new Activites();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
-            
-            
-            $entityManager->persist($activite);
-            $entityManager->flush();
-            // do anything else you need here, like send an email
+            // Création de l'objet formulaire
+            $form = $this->createForm(ActiviteFormType::class, $activite);
+                
+            $form->handleRequest($request);
 
-            return $this->redirectToRoute('app_connexion');
+            if($form->isSubmitted()) {
+                $manager = $doctrine->getManager();
+                $manager->persist($activite);
+
+                $manager->flush();
+
+                $this->addFlash('success', $activite->getIntitule()."a été ajouté avec succès");
+
+                return $this->redirectToRoute('app_accueil');
+            }
+            else {
+                return $this->render('activite/new_activite.html.twig', [
+                    'activiteForm' => $form->createView()
+                ]);
+            }   
         }
 
-        return $this->render('activite/activite.html.twig', [
-            'activiteForm' => $form->createView(),
-        ]);
-    }
+        /**
+         * Undocumented function
+         * @Route("/liste_activite", name="app_liste_activite")
+         */
+        public function liste_activite(ActivitesRepository $activitesRepository): Response
+        {
+            return $this->render('activite/liste_activite.html.twig', [
+                'activites' => $activitesRepository->findBy([], ['Date' => 'asc'])
+            ]);
+        }
 }

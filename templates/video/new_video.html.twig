@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/_new_video.css')}}">{% endblock %}
+
+{% block body %}
+
+        <section class="banner pt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <h1>Ajouter une Vidéo</h1>
+                    {{ form_start(videoForm)}}
+                    {{ form_rest(videoForm)}}
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

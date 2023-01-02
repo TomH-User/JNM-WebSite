@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Users;
 use App\Form\RegistrationFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use PharIo\Manifest\Email;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,9 +23,11 @@ class RegistrationController extends AbstractController
     {
         $user = new Users();
         $form = $this->createForm(RegistrationFormType::class, $user);
+        $form->remove('RefStatut'); // pour l'instant on ne considère pas refstatut
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
+            if ($user->getEmail()=='admin@gmail.com') {$user->setRoles(["ROLE_ADMIN"]);}
             // encode the plain password
             $user->setPassword(
             $userPasswordHasher->hashPassword(
@@ -37,10 +40,10 @@ class RegistrationController extends AbstractController
             $entityManager->flush();
             // do anything else you need here, like send an email
 
-            return $this->redirectToRoute('app_statut');
+            return $this->redirectToRoute('app_accueil');
         }
 
-        return $this->render('registration/register.html.twig', [
+        return $this->render('compte/register.html.twig', [
             'registrationForm' => $form->createView(),
         ]);
     }

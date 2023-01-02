@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/_new_partenaire.css')}}">{% endblock %}
+{% block title %}Gestion Users{% endblock %}
+
+{% block body %}
+
+        <section class="banner pt-5">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-6">
+                    <h1 class="col-6">Mon Profil actuel</h1>
+                    <p>Nom       : {{app.user.nom}}   </p>
+                    <p>Prenom    : {{app.user.prenom}}</p>
+                    <p>Miage     : {{app.user.miage}}</p>
+                    <p>Region    : {{app.user.region}}</p>
+                    {# <p>RefStatut : {{app.user.RefStatut}}</p> #}
+                    <p>Logement  : {{app.user.etatLogement}}</p>
+                    <p>Transport : {{app.user.EtatTransport}}</p>
+                    {# {{ form(userForm)}} #}
+                <br><br>
+                <h3>Modifier mon profil</h3>
+                <p>Si vous souhaitez modifier votre profil c'est <a href="\edit_user">ici</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

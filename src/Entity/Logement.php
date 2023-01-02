@@ -131,4 +131,9 @@ class Logement
 
         return $this;
     }
+
+    public function __toString(): string
+    {
+        return $this->nomLogement;
+    }
 }

@@ -5,40 +5,57 @@ namespace App\Controller;
 use App\Entity\Users;
 use App\Entity\Video;
 use App\Form\VideoFormType;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Repository\VideoRepository;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Security;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Doctrine\Persistence\ManagerRegistry;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class VideoController extends AbstractController
 {
-    /**
-     * @Route("e", name="app_video")
-    * @ParamConverter("id",class="Users", options={"id": "id"})
-     */
-    public function new(Request $request, EntityManagerInterface $entityManager, Users $user): Response
-    {
-        $video = new Video();
-        $video->setRefUtilisateur($user->getId1);
-    
-        $form = $this->createForm(VideoFormType::class, $video);
-        $form->handleRequest($request);
+        /**
+         * Undocumented function
+         * @Route("/new_video", name="app_new_video")
+         */
+        public function new_video (ManagerRegistry $doctrine, Request $request): Response
+        {
+            // Instanciation de l'entité concernée
+            $video = new Video();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+            // Création de l'objet formulaire
+            $form = $this->createForm(VideoFormType::class, $video);
+            $form->remove('refUtilisateur');
+            $form->remove('nbVotes');
+                
+            $form->handleRequest($request);
 
-            $entityManager->persist($video);
-            $entityManager->flush();
-            // do anything else you need here, like send an email
+            if($form->isSubmitted()) {
+                $manager = $doctrine->getManager();
+                $manager->persist($video);
 
-            return $this->redirectToRoute('app_connexion');
+                $manager->flush();
+
+                $this->addFlash('success', $video->getLien()."a été ajouté avec succès");
+
+                return $this->redirectToRoute('app_accueil');
+            }
+            else {
+                return $this->render('video/new_video.html.twig', [
+                    'videoForm' => $form->createView()
+                ]);
+            }   
         }
 
-        return $this->render('video/video.html.twig', [
-            'videoForm' => $form->createView(),
+    /**
+     * Undocumented function
+     * @Route("/liste_video", name="app_liste_video")
+     */
+    public function liste_video(VideoRepository $videoRepository): Response
+    {
+        return $this->render('video/liste_video.html.twig', [
+            'videos' => $videoRepository->findBy([], ['lien' => 'asc'])
         ]);
     }
 }

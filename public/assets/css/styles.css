@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Roboto:wght@300&display=swap');
+
+/* Fond d'écran par défaut de notre sie web */
+.banner {
+    background: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1518715058720-e56f02e77fe5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1780&q=80')
+    center center fixed no-repeat;
+    height: 1200px;
+}
+
+/* Mise en forme du menu de navigation en haut */
+.cc-navbar {
+    background-color: rgb(0, 0, 0);
+    font-family: montserrat, serif;
+    box-shadow: 1px 1px 3px rgba(255, 255, 255, 0.54);
+}
+
+/* Permet d'afficher le contenu de chaque item lorsque l'on passe la souris dessus */
+@media all and (min-width: 992px) {
+	.navbar .dropdown-menu-end{ right:0; left: auto;  }
+	.navbar .nav-item .dropdown-menu{  display:block; opacity: 0;  visibility: hidden; transition:.3s; margin-top:0;  }
+	.navbar .nav-item:hover .nav-link{ color: #fff;  }
+	.navbar .dropdown-menu.fade-down{ top:80%; transform: rotateX(-75deg); transform-origin: 0% 0%; }
+	.navbar .dropdown-menu.fade-up{ top:180%;  }
+	.navbar .nav-item:hover .dropdown-menu{ transition: .1s; opacity:1; visibility:visible; top:100%; transform: rotateX(0deg); }
+}item .dropdown-menu{ margin-top:0; }
+
+/* Effet lorsque l'on passe la souris sur un element de navigation */
+.cc-navbar .nav-link {
+    transition: padding-bottom .4s ease-in-out, border-color .3s ease;
+}
+.cc-navbar .nav-link:hover {
+    padding-top: 5px;
+    border-bottom-color: white;
+}
+
+
+/* Couleur de police par défaut du site */
+body {
+    color: white;
+}
+
+/* Mise en forme des titres de chaque page */
+h1 {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 30em;
+}

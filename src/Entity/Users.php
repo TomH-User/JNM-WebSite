@@ -75,12 +75,12 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\Column(type="smallint")
      */
-    private $etatLogement;
+    private $etatLogement=0;
 
     /**
      * @ORM\Column(type="smallint")
      */
-    private $EtatTransport;
+    private $EtatTransport=0;
 
     /**
      * @ORM\ManyToOne(targetEntity=Transport::class, inversedBy="idTransport")
@@ -98,12 +98,13 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
     private $activites;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Statut::class, mappedBy="idStatut")
+     * @ORM\ManyToMany(targetEntity=Statut::class, mappedBy="NomStatut")
      */
     private $RefStatut;
 
     public function __construct()
     {
+        if($this->getEmail()=='admin@gmail.com') $this->setRoles(["ROLE_ADMIN"]);
         $this->activites = new ArrayCollection();
         $this->RefStatut = new ArrayCollection();
     }
@@ -381,5 +382,10 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->nom;
     }
 }

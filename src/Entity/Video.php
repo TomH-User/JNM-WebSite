@@ -19,7 +19,7 @@ class Video
 
     /**
      * @ORM\OneToOne(targetEntity=Users::class, cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
     private $refUtilisateur;
 
@@ -78,7 +78,12 @@ class Video
 
         return $this;
     }
-    
+
+    public function __toString(): string
+    {
+        return $this->lien;
+    }
+
     // public function getEmail(): ?string
     // {
     //     return $this->email;

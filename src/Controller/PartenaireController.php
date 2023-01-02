@@ -2,38 +2,66 @@
 
 namespace App\Controller;
 
+use App\Entity\Users;
 use App\Entity\Partenaires;
 use App\Form\PartenaireFormType;
 use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Form\UsersFormType;
 
 class PartenaireController extends AbstractController
 {
-    /**
-     * Undocumented function
-     * @Route("/partenaire1", name="app_partenaire")
-     */
-    public function new(Request $request, EntityManagerInterface $entityManager): Response
-    {
-        $partenaire = new Partenaires();
-        $form = $this->createForm(PartenaireFormType::class, $partenaire);
-        $form->handleRequest($request);
+        /**
+         * Undocumented function
+         * @Route("/new_partenaire", name="app_new_partenaire")
+         */
+        public function newPartenaire (ManagerRegistry $doctrine, Request $request): Response
+        {
+            // Instanciation de l'entité concernée
+            $partenaire = new Partenaires();
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            // encode the plain password
+            // Création de l'objet formulaire
+            $form = $this->createForm(PartenaireFormType::class, $partenaire);
+                
+            $form->handleRequest($request);
 
-            $entityManager->persist($partenaire);
-            $entityManager->flush();
-            // do anything else you need here, like send an email
+            if($form->isSubmitted()) {
+                $manager = $doctrine->getManager();
+                $manager->persist($partenaire);
 
-            return $this->redirectToRoute('app_connexion');
+                $manager->flush();
+
+                $this->addFlash('success', $partenaire->getNomsociete()."a été ajouté avec succès");
+
+                return $this->redirectToRoute('app_accueil');
+            }
+            else {
+                return $this->render('partenaires/new_partenaire.html.twig', [
+                    'partenaireForm' => $form->createView()
+                ]);
+            }   
         }
 
-        return $this->render('partenaire/partenaire.html.twig', [
-            'partenaireForm' => $form->createView(),
-        ]);
-    }
+        /**
+         * Undocumented function
+         * @Route("/liste_partenaire", name="app_liste_partenaire")
+         */
+        public function liste_partenaire(): Response
+        {
+            return $this->render('partenaires/liste_partenaire.html.twig');
+        }
+    
+        /**
+         * Undocumented function
+         * @Route("/delete_partenaire", name="app_delete_partenaire")
+         */
+        public function delete_partenaire(): Response
+        {
+            return $this->render('partenaires/delete_partenaire.html.twig');
+        }
+
 }
