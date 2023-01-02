@@ -1,14 +1,14 @@
 {% extends 'base.html.twig' %}
 {% block stylesheets %}<link rel="stylesheet" href="{{asset('assets/css/_accueil.css')}}">{% endblock %}
 {% block javascripts %}<script src="https://cdn.jsdelivr.net/npm/axentix@2.2.1/dist/axentix.min.js"></script>{% endblock %}
+{% block title %}Accueil{% endblock %}
 
 {% block body %}
 
     <section class="banner pt-4">
         <div class="container">
             <div class="row justify-content-center">
-
-
+            
                 {# élément #}
                 {% if not app.user %}
                 <div class="col-12 p-4">
