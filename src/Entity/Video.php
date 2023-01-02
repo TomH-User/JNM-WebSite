@@ -38,6 +38,11 @@ class Video
      */
     private $nbVotes = 0;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $Miage;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -95,4 +100,16 @@ class Video
 
     //     return $this;
     // }
+
+    public function getMiage(): ?string
+    {
+        return $this->Miage;
+    }
+
+    public function setMiage(?string $Miage): self
+    {
+        $this->Miage = $Miage;
+
+        return $this;
+    }
 }
