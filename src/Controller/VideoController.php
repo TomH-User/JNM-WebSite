@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Users;
 use App\Entity\Video;
 use App\Form\VideoFormType;
+use App\Repository\VideoRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -51,8 +52,10 @@ class VideoController extends AbstractController
      * Undocumented function
      * @Route("/liste_video", name="app_liste_video")
      */
-    public function liste_video(): Response
+    public function liste_video(VideoRepository $videoRepository): Response
     {
-        return $this->render('video/liste_video.html.twig');
+        return $this->render('video/liste_video.html.twig', [
+            'videos' => $videoRepository->findBy([], ['lien' => 'asc'])
+        ]);
     }
 }
