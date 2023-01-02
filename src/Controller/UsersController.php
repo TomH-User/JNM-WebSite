@@ -17,30 +17,41 @@ class UsersController extends AbstractController
          * @Route("/user", name="app_user")
          */
 
-         public function User (ManagerRegistry $doctrine, Request $request): Response
+        public function consulter_user (): Response
+        {
+            return $this->render('compte/user.html.twig');
+        }
+
+        /**
+         * @Route("/edit_user", name="app_edit_user")
+         */
+
+         public function modifier_user (ManagerRegistry $doctrine, Request $request): Response
         {
             // Instanciation de l'entité concernée
-            $user = new Users();
+            $user = $this->getUser();
 
             // Création de l'objet formulaire
             $form = $this->createForm(UsersFormType::class, $user);
                 
             $form->handleRequest($request);
 
-            if($form->isSubmitted()) {
+            if($form->isSubmitted() && $form->isValid()) {
                 $manager = $doctrine->getManager();
                 $manager->persist($user);
 
                 $manager->flush();
 
-                $this->addFlash('success', $user->getPrenom()."a été ajouté avec succès");
+                $this->addFlash('success', "Profil mis à jour");
 
-                return $this->redirectToRoute('app_accueil');
+                return $this->redirectToRoute('app_user');
             }
             else {
-                return $this->render('compte/user.html.twig', [
+                return $this->render('compte/edit_user.html.twig', [
                     'userForm' => $form->createView()
                 ]);
             }   
         } 
+
+
 }
