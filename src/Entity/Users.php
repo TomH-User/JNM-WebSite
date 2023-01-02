@@ -104,6 +104,7 @@ class Users implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function __construct()
     {
+        if($this->getEmail()=='admin@gmail.com') $this->setRoles(["ROLE_ADMIN"]);
         $this->activites = new ArrayCollection();
         $this->RefStatut = new ArrayCollection();
     }

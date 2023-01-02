@@ -8,11 +8,20 @@
         <div class="container">
             <div class="row justify-content-center">
 
+
                 {# élément #}
+                {% if not app.user %}
                 <div class="col-12 p-4">
                     <h1>Bienvenue sur le site des Journées Nationales de la MIAGE 2023 </h1>
                 </div>
                 <div class="w-100"></div>
+                {% else %}
+                <div class="col-12 p-4">
+                    <h1>Bievenue {{ app.user.prenom}} ! </h1>
+                </div>
+                <div class="w-100"></div>
+
+                {% endif %}
 
                 {# élément #}
                 <div class="col-5 p-4">

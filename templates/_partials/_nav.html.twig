@@ -53,10 +53,12 @@
 						<li>
 							<a class="dropdown-item" href="/liste_activite">Liste des activités</a>
 						</li>
+						{% if app.user %}
 						<li><hr class="dropdown-divider"></li>
 						<li>
 							<a class="dropdown-item" href="#">S'inscrire à une activité</a>
 						</li>
+						{% endif %}
 						<li><hr class="dropdown-divider"></li>
 						<li>
 							<a class="dropdown-item" href="/new_activite"> Gestion Activités</a>
@@ -87,37 +89,18 @@
 						</li>
 					</ul>
 				</li>
-                <li class="nav-item dropdown pe-3">
-					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-					    Compte
-					</a>
-					<ul class="dropdown-menu dropdown-menu-dark">
-						<li>
-							<a class="dropdown-item" href="/register">Inscription</a>
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li>
-							<a class="dropdown-item" href="/login">Connexion</a>
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li>
-							<a class="dropdown-item" href="/logout">Déconnexion</a>
-						</li>
-						<li><hr class="dropdown-divider"></li>
-						<li>
-							<a class="dropdown-item" href="#">Gestion Utilisateurs</a>
-						</li>
-					</ul>
-				</li>
+       
 				<li class="nav-item dropdown pe-3">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 					    Concours Vidéo
 					</a>
 					<ul class="dropdown-menu dropdown-menu-dark">
+					{% if app.user %}
 						<li>
 							<a class="dropdown-item" href="/new_video">Publier une vidéo</a>
 						</li>
 						<li><hr class="dropdown-divider"></li>
+					{% endif %}
 						<li>
 							<a class="dropdown-item" href="/liste_video">Liste vidéos & Votes</a>
 						</li>
@@ -127,6 +110,35 @@
 						</li>
 					</ul>
 				</li>
+				<li class="nav-item dropdown pe-3">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+					    Compte
+					</a>
+					<ul class="dropdown-menu dropdown-menu-dark">
+						{% if not app.user %}
+						<li>
+							<a class="dropdown-item" href="/register">Inscription</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						<li>
+							<a class="dropdown-item" href="/login">Se connecter</a>
+						</li>
+						{# <li><hr class="dropdown-divider"></li> #}
+						{% endif %}
+						{% if app.user %}
+						<li>
+							<a class="dropdown-item" href="/logout">Se déconnecter</a>
+						</li>
+						<li><hr class="dropdown-divider"></li>
+						{% endif %}
+						{% if is_granted('ROLE_ADMIN') %}
+						<li>
+							<a class="dropdown-item" href="#">Gestion Utilisateurs</a>
+						</li>
+						{% endif %}
+					</ul>
+				</li>
+
 				<li class="nav-item pe-3">
 					<a class="nav-link" href="/contact">Contacts</a>
 				</li>

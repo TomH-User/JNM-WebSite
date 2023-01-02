@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Users;
 use App\Entity\Video;
 use App\Form\VideoFormType;
 use Symfony\Component\HttpFoundation\Request;
@@ -9,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Doctrine\Persistence\ManagerRegistry;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class VideoController extends AbstractController
 {
@@ -16,7 +18,7 @@ class VideoController extends AbstractController
          * Undocumented function
          * @Route("/new_video", name="app_new_video")
          */
-        public function new_transport (ManagerRegistry $doctrine, Request $request): Response
+        public function new_video (ManagerRegistry $doctrine, Request $request, Security $security): Response
         {
             // Instanciation de l'entité concernée
             $video = new Video();
@@ -25,6 +27,7 @@ class VideoController extends AbstractController
             $form = $this->createForm(VideoFormType::class, $video);
             $form->remove('refUtilisateur');
             $form->remove('nbVotes');
+            $video->setrefUtilisateur($this->security->getUser());
                 
             $form->handleRequest($request);
 
@@ -49,7 +52,7 @@ class VideoController extends AbstractController
      * Undocumented function
      * @Route("/liste_video", name="app_liste_video")
      */
-    public function liste_transport(): Response
+    public function liste_video(): Response
     {
         return $this->render('video/liste_video.html.twig');
     }
