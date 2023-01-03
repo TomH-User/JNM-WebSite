@@ -36,13 +36,37 @@
 
 /* Couleur de police par défaut du site */
 body {
+    font-family: montserrat, serif;
     color: white;
 }
 
 /* Mise en forme des titres de chaque page */
 h1 {
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30em;
+    font-weight: bold;
+}
+
+h2 {
+    font-weight: bold;
+}
+
+h3 {
+    font-weight: bold;
+}
+
+a {
+    font-weight: bold;
+    color:rgb(44, 157, 205);
+}
+
+
+p {
+    font-size: 18px;
+}
+
+#gras {
+    font-weight: bold;
+}
+
+#italique {
+    font-style: italic;
 }

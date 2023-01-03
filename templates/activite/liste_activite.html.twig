@@ -6,15 +6,15 @@
     <section class="banner pt-5">
         <div class="container">
             <div class="row justitfy-content-center">
-                <div class="col-6 mb-4">
-                    <h1> Liste des activités proposées</h1>
+                <div class="col-12 mb-4">
+                    <h1 class="text-center"> Liste des activités proposées</h1>
                 </div>
                     {% for activite in activites %}
                     <div class="card-centrer">
                         <div class="col-12 mx-4 my-4 pb-2">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">{{activite.intitule}}</h5>
+                                    <h5 id="gras" class="card-title">{{activite.intitule}}</h5>
                                     <p class="card-text">{{activite.date|date("m/d/Y H:i:s")}}</p>
                                 </div>
                             </div>

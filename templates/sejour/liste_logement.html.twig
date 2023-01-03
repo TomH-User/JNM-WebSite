@@ -7,18 +7,18 @@
     <section class="banner pt-5">
         <div class="container">
             <div class="row justitfy-content-center">
-                <div class="col-6 mb-4">
-                    <h1> Liste des logements proposées</h1>
+                <div class="col-12 mb-4">
+                    <h1 class="text-center"> Liste des logements proposées</h1>
                 </div>
                     {% for logement in logements %}
                     <div class="card-centrer">
                         <div class="col-12 mx-4 my-4 pb-2">
                             <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Nom : {{logement.nomLogement}}</h5>
-                                    <p class="card-text">Adresse : {{logement.adresse}}</p>
-                                    <p class="card-text">Prix : {{logement.prix}} euros</p>
-                                    <p class="card-text">Nombre de places : {{logement.nbplaces}}</p>
+                                    <h5 id="gras" class="card-title pb-2">Nom : {{logement.nomLogement}}</h5>
+                                    <p id="italique" class="card-text">Adresse : {{logement.adresse}}</p>
+                                    <p id="italique" class="card-text">Prix : {{logement.prix}} euros</p>
+                                    <p id="italique" class="card-text">Nombre de places : {{logement.nbplaces}}</p>
                                 </div>
                             </div>
                         </div>

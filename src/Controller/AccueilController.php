@@ -43,7 +43,7 @@ class AccueilController extends AbstractController
     {
         return $this->render('compte/login.html.twig');
     }
-    
+
     /**
      * Undocumented function
      * @Route("/deconnexion", name="app_deconnexion")
@@ -53,15 +53,7 @@ class AccueilController extends AbstractController
         return $this->render('compte/deconnexion.html.twig');
     }
     
- 
-    /**
-     * Undocumented function
-     * @Route("/stats", name="app_stats")
-     */
-    public function stats(): Response
-    {
-        return $this->render('statistiques/stats.html.twig');
-    }
+
    
     /**
      * @Route("/contact", name="app_contact")

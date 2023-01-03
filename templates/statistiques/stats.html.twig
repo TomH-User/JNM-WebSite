@@ -6,18 +6,34 @@
 
     <section class="banner pt-5">
         <div class="container">
-            <h1>Statistiques Générales</h1>
-            <div class="row justify-content-center">
-            
-                {# élément #}
-                <div class="col-12 mt-5 px-5">
-                    <h2>Statistiques</h2>                    
-                    <p>Afficher des stats sur les inscrits jusqu’à présent : leur nombre, leur provenance (quel Miage), les statuts ( étudiant, enseignant, diplômés…)….</p>
+                <div class="row justify-content-center">
+                    <h1 class="text-center"> Statistiques générales</h1>
                 </div>
-                <div class="w-100"></div>
-
-            </div>
-        </div>
+                <div class="row justify-content-center p-1  mt-1">
+                    <div class="col-6">
+                            <div class="col-10 p-3 alert-success text-center">
+                                <span id="gras" class="display-3"> {{ countAllUser['value'] }} </span><p>Utilisateurs</p>
+                            </div>
+                            <div class="col-10 p-3 alert-success text-center">
+                                <span id="gras" class="display-3"> {{ countAllActivite['value'] }} </span><p>Activités</p>
+                            </div>
+                            <div class="col-10 p-3 alert-success text-center">
+                                <span id="gras" class="display-3"> {{ countAllVideo['value'] }} </span><p>Vidéos</p>
+                            </div>
+                    </div>
+                    <div class="col-6">
+                            <div class="col-10 p-3 alert-primary text-center">
+                                <span id="gras" class="display-3"> {{ countAllPartenaire['value'] }} </span><p>Partenaires</p>
+                            </div>
+                            
+                            <div class="col-10 p-3 alert-primary text-center">
+                                <span id="gras" class="display-3"> {{ countAllLogement['value'] }} </span><p>Logements</p>
+                            </div>
+                            <div class="col-10 p-3 alert-primary text-center">
+                                <span id="gras" class="display-3"> {{ countAllTransport['value'] }} </span><p>Transports</p>
+                            </div>
+                    </div>
+                </div>
     </section>
     
 {% endblock %}
