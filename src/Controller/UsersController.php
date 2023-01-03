@@ -34,9 +34,12 @@ class UsersController extends AbstractController
         {
             // Instanciation de l'entité concernée
             $user = $this->getUser();
-
+            
             // Création de l'objet formulaire
             $form = $this->createForm(UsersFormType::class, $user);
+            $form->remove('RefStatut'); // pour l'instant on ne considère pas refstatut
+            $form->remove('email'); // pour l'instant on ne considère pas refstatut
+
                 
             $form->handleRequest($request);
 

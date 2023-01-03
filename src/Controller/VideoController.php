@@ -6,6 +6,7 @@ use App\Entity\Users;
 use App\Entity\Video;
 use App\Form\VideoFormType;
 use App\Repository\VideoRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -47,15 +48,45 @@ class VideoController extends AbstractController
                 ]);
             }   
         }
+        
+        /**
+         * Undocumented function
+         * @Route("/liste_video", name="app_liste_video")
+         */
+        public function liste_video(VideoRepository $videoRepository): Response
+        {
+            return $this->render('video/liste_video.html.twig', [
+                'videos' => $videoRepository->findBy([], ['id' => 'asc'])
+            ]);
+        }
 
-    /**
-     * Undocumented function
-     * @Route("/liste_video", name="app_liste_video")
-     */
-    public function liste_video(VideoRepository $videoRepository): Response
-    {
-        return $this->render('video/liste_video.html.twig', [
-            'videos' => $videoRepository->findBy([], ['lien' => 'asc'])
-        ]);
-    }
+        
+        /**
+         * Undocumented function
+         * @Route("/video/{id}/edit", name="app_edit_video")
+         */
+        public function edit_video (Video $video, Request $request, EntityManagerInterface $em): Response
+        {
+            $form = $this->createForm(VideoFormType::class, $video);
+            $form->remove('refUtilisateur');
+            $form->remove('Miage');
+
+            $form->handleRequest($request);
+            
+            if ($form->isSubmitted() && $form->isValid()) {
+                $video = $form->getData();
+                $em->persist($video);
+                $em->flush();
+                $this->addFlash('success', "Votre vote a bien été pris en compte");
+            
+                return $this->redirectToRoute('app_edit_video', [
+                    'id' => $video->getId(),
+                ]);
+            }
+            
+            return $this->render('video/edit_video.html.twig', [
+                'voteForm' => $form->createView()
+            ]);
+        }
+
 }
