@@ -3,11 +3,11 @@
 namespace App\Repository;
 
 use App\Entity\Users;
-use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
+use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
-use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
 
 /**
  * @extends ServiceEntityRepository<Users>
@@ -56,6 +56,45 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
         $this->add($user, true);
     }
 
+    
+    public function countAllUser()
+    {
+        $queryBuilder = $this->createQueryBuilder('a');
+        $queryBuilder->select('COUNT(a.id) as value');
+
+        return $queryBuilder->getQuery()->getOneOrNullResult();
+    }
+
+    public function allEmailGmail()
+    {
+        $value = "gmail";
+
+        return $this->createQueryBuilder('u')
+            ->andWhere('u.email like :email')
+            ->setParameter('email', '%'.$value.'%')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function selectAllStatut() 
+    {
+        $conn = $this->getEntityManager()->getConnection();
+
+        $sql = '
+            SELECT DISTINCT u.statut 
+            FROM users u 
+            WHERE u.email is not null
+        ';
+            
+        $stmt = $conn->prepare($sql);
+        $resultSet = $stmt->executeQuery();
+        
+        // returns an array of arrays (i.e. a raw data set)
+        return $resultSet->fetchAllAssociative();
+    }
+
+
 //    /**
 //     * @return Users[] Returns an array of Users objects
 //     */
@@ -80,4 +119,7 @@ class UsersRepository extends ServiceEntityRepository implements PasswordUpgrade
 //            ->getOneOrNullResult()
 //        ;
 //    }
+
 }
+
+

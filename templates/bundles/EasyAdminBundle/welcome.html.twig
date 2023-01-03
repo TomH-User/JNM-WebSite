@@ -1,58 +1,80 @@
 {# @var ea \EasyCorp\Bundle\EasyAdminBundle\Context\AdminContext #}
 {% extends '@EasyAdmin/page/content.html.twig' %}
 
-{% block content_title 'Welcome to EasyAdmin 3' %}
+{% block page_title %} Dashboad {% endblock %}
 
-{% block main %}
-    <style>
-        p { max-width: 600px; }
-    </style>
+{% block content %}
+    <div class="content">
 
-    <p>
-        <strong>You have successfully installed EasyAdmin 3 in your application!</strong>
-    </p>
+        <div class="container">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">{{ 'Dashboard'|trans }}</a>
+                </li>
+                <li class="breadcrumb-item active">{{ app.user.username }} </li>
+            </ol>
+            <!-- Icon Cards-->
+        </div>
 
-    <p>
-        You are seeing this example page because you haven't configured the start page
-        of your Dashboard. To do that, open the following file in your editor:
-    </p>
+        <div class="container">
+            <div class="row">
+                <h1> Statistiques général</h1>
+            </div>
+            <div class="row justify-content-center p-3  mt-1">
+                <div class="col-6">
+                        <div class="col-10 p-3 alert-success text-center">
+                            <span class="display-3"> {{ countAllUser['value'] }} </span> Utilisateurs
+                        </div>
+                        <div class="col-10 p-3 alert-success text-center">
+                            <span class="display-3"> {{ countAllActivite['value'] }} </span> Activités
+                        </div>
+                        <div class="col-10 p-3 alert-success text-center">
+                            <span class="display-3"> {{ countAllVideo['value'] }} </span> Vidéos
+                        </div>
+                </div>
+                <div class="col-6">
+                        <div class="col-10 p-3 alert-primary text-center">
+                            <span class="display-3"> {{ countAllPartenaire['value'] }} </span> Partenaires
+                        </div>
+                        
+                        <div class="col-10 p-3 alert-primary text-center">
+                            <span class="display-3"> {{ countAllLogement['value'] }} </span> Logements
+                        </div>
+                        <div class="col-10 p-3 alert-primary text-center">
+                            <span class="display-3"> {{ countAllTransport['value'] }} </span> Transports
+                        </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-12">
+                    <h2> Statuts des utilisateurs inscrits </h2>
 
-    <pre>{{ dashboard_controller_filepath }}</pre>
+                    <ul class="list-group pt-4">
+                        {% for statut in statuts %}
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                            <span>
+                                <i class="fa fa-map"></i>
+                                {{ statut.NomStatut }}
+                            </span>
+                            {# <span class="badge badge-pill">
+                                <img class="img-thumbnail" src="{{ vich_uploader_asset(city, 'imageFile') }}" style="width: 150px;">
+                            </span> #}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
 
-    <p>
-        Then, add the following method to it to customize the Dashboard start page:
-    </p>
-
-    <pre>
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Routing\Annotation\Route;
-// ...
-
-class {{ dashboard_controller_class }} extends AbstractDashboardController
-{
-    /**
-     * @Route("/admin")
-     */
-    public function index(): Response
-    {
-        // redirect to some CRUD controller
-        $routeBuilder = $this->get(AdminUrlGenerator::class);
-
-        return $this->redirect($routeBuilder->setController(OneOfYourCrudController::class)->generateUrl());
-
-        // you can also redirect to different pages depending on the current user
-        if ('jane' === $this->getUser()->getUsername()) {
-            return $this->redirect('...');
-        }
-
-        // you can also render some template to display a proper Dashboard
-        // (tip: it's easier if your template extends from @EasyAdmin/page/content.html.twig)
-        return $this->render('some/path/my-dashboard.html.twig');
-    }
-
-    // ...
-}
-    </pre>
-{% endblock %}
+            {# countAllUser
+            countAllPartenaire
+            countAllTransport
+            countAllLogement
+            countAllActivite
+            countAllVideo
+            countAllStatut
+            countAllOffre
+            statut #}
