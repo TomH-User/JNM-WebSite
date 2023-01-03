@@ -13,18 +13,18 @@
                     </div>
                 {% endfor %}
                 <div class="col-6">
-                    <h1 class="col-6">Mon Profil actuel</h1>
-                    <p>Nom       : {{app.user.nom}}   </p>
-                    <p>Prenom    : {{app.user.prenom}}</p>
-                    <p>Miage     : {{app.user.miage}}</p>
-                    <p>Region    : {{app.user.region}}</p>
+                    <h1 class="col-12">Mon Profil actuel</h1>
+                    <p> <span id="gras">Nom</span>       : {{app.user.nom}}   </p>
+                    <p> <span id="gras">Prenom</span>    : {{app.user.prenom}}</p>
+                    <p> <span id="gras">Email</span>     : {{app.user.email}}</p>
+                    <p> <span id="gras">Region</span>    : {{app.user.region}}</p>
                     {# <p>RefStatut : {{app.user.RefStatut}}</p> #}
-                    <p>Logement  : {{app.user.etatLogement}}</p>
-                    <p>Transport : {{app.user.EtatTransport}}</p>
+                    <p> <span id="gras">MIAGE</span>  :  {{app.user.miage}}</p>
+                    <p> <span id="gras">Adresse</span> : {{app.user.adresse}}</p>
                     {# {{ form(userForm)}} #}
                 <br>
-                <p><a href="\edit_user"><button type="button" class="btn btn-primary">Modifier mon profil</button></a></p>
-                <p><a href="\edit_pass"><button type="button" class="btn btn-primary">Modifier mon Mot de passe</button></a></p>
+                <p><a href="\edit_user"><button type="button" class="btn btn-primary"><span id="gras">Modifier mon Profil</span></button></a></p>
+                <p><a href="\edit_pass"><button type="button" class="btn btn-primary"><span id="gras">Modifier mon Mot de passe</span></button></a></p>
                 </div>
             </div>
         </div>
