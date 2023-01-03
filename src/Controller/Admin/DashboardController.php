@@ -17,6 +17,7 @@ use App\Repository\LogementRepository;
 use App\Repository\ActivitesRepository;
 use App\Repository\TransportRepository;
 use App\Repository\PartenairesRepository;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -73,6 +74,11 @@ class DashboardController extends AbstractDashboardController
             'selectAllStatut' => $this->usersRepository->selectAllStatut()
         ]);
     }
+    public function configureAssets(): Assets
+    {
+        return Assets::new()
+        ->addCssFile('bundles/EasyAdminBundle/css/admin_style.css');
+    }
 
     public function configureDashboard(): Dashboard
     {
@@ -84,11 +90,11 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-users', Users::class);
-        yield MenuItem::linkToCrud('Activités', 'fa fa-users', Activites::class);
-        yield MenuItem::linkToCrud('Partenaires', 'fa fa-users', Partenaires::class);
-        yield MenuItem::linkToCrud('Logements', 'fa fa-users', Logement::class);
-        yield MenuItem::linkToCrud('Transports', 'fa fa-users', Transport::class);
-        yield MenuItem::linkToCrud('Vidéos', 'fa fa-users', Video::class);
+        yield MenuItem::linkToCrud('Activités', 'fa fa-dice', Activites::class);
+        yield MenuItem::linkToCrud('Partenaires', 'fa fa-handshake', Partenaires::class);
+        yield MenuItem::linkToCrud('Logements', 'fa fa-hotel', Logement::class);
+        yield MenuItem::linkToCrud('Transports', 'fa fa-subway', Transport::class);
+        yield MenuItem::linkToCrud('Vidéos', 'fa fa-camera', Video::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }

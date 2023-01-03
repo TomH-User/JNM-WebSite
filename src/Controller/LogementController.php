@@ -13,37 +13,6 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class LogementController extends AbstractController
 {
-        /**
-         * Undocumented function
-         * @Route("/new_logement", name="app_new_logement")
-         */
-        public function new_logement (ManagerRegistry $doctrine, Request $request): Response
-        {
-            // Instanciation de l'entité concernée
-            $logement = new Logement();
-
-            // Création de l'objet formulaire
-            $form = $this->createForm(LogementFormType::class, $logement);
-                
-            $form->handleRequest($request);
-
-            if($form->isSubmitted()) {
-                $manager = $doctrine->getManager();
-                $manager->persist($logement);
-
-                $manager->flush();
-
-                $this->addFlash('success', $logement->getNomLogement()."a été ajouté avec succès");
-
-                return $this->redirectToRoute('app_accueil');
-            }
-            else {
-                return $this->render('sejour/new_logement.html.twig', [
-                    'logementForm' => $form->createView()
-                ]);
-            }   
-        }
-
     /**
      * Undocumented function
      * @Route("/liste_logement", name="app_liste_logement")

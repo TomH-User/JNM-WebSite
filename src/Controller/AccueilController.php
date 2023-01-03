@@ -34,14 +34,7 @@ class AccueilController extends AbstractController
     {
         return $this->render('informations/info_campus.html.twig');
     }
-    /**
-     * Undocumented function
-     * @Route("/inscription", name="app_incrisption")
-     */
-    public function inscription(): Response
-    {
-        return $this->render('compte/inscription.html.twig');
-    }
+
     /**
      * Undocumented function
      * @Route("/connexion", name="app_connexion")
@@ -50,6 +43,7 @@ class AccueilController extends AbstractController
     {
         return $this->render('compte/login.html.twig');
     }
+    
     /**
      * Undocumented function
      * @Route("/deconnexion", name="app_deconnexion")
