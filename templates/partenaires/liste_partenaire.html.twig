@@ -43,6 +43,21 @@
                     </div>
                 </div>
         </div>
+
+            </div>
+                    {% for partenaire in partenaires %}
+                    <div class="card-centrer">
+                        <div class="col-12 mx-4 my-4 pb-2">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 id="gras" class="card-title">{{partenaire.Nomsociete}}</h5>
+                                    {# <p id="italique" class="card-text">Nom Société : {{partenaire.Nomsociete}} euros</p> #}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+            </div>
     
     </section>
 
