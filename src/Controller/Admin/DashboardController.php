@@ -2,21 +2,26 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Partenaires;
+use App\Entity\Users;
+use App\Entity\Video;
 use App\Entity\Statut;
-use App\Repository\ActivitesRepository;
-use App\Repository\LogementRepository;
+use App\Entity\Logement;
+use App\Entity\Activites;
+use App\Entity\Transport;
+use App\Entity\Partenaires;
 use App\Repository\OffreRepository;
-use App\Repository\PartenairesRepository;
-use App\Repository\StatutRepository;
-use App\Repository\TransportRepository;
 use App\Repository\UsersRepository;
 use App\Repository\VideoRepository;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use App\Repository\StatutRepository;
+use App\Repository\LogementRepository;
+use App\Repository\ActivitesRepository;
+use App\Repository\TransportRepository;
+use App\Repository\PartenairesRepository;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -78,6 +83,12 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
+        yield MenuItem::linkToCrud('Utilisateurs', 'fa fa-users', Users::class);
+        yield MenuItem::linkToCrud('Activités', 'fa fa-users', Activites::class);
+        yield MenuItem::linkToCrud('Partenaires', 'fa fa-users', Partenaires::class);
+        yield MenuItem::linkToCrud('Logements', 'fa fa-users', Logement::class);
+        yield MenuItem::linkToCrud('Transports', 'fa fa-users', Transport::class);
+        yield MenuItem::linkToCrud('Vidéos', 'fa fa-users', Video::class);
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 }
