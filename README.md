@@ -10,12 +10,12 @@ Chaque année sont organisées les **Journées Nationales de la MIAGE (JNM)**. C
 Le <b>Comité d'association de la MIAGE de Nanterre</b> a été notre client et nous a fait part du cahier des charges de ce projet dans lequel toutes ces fonctionnalités sont précisément renseignées.<br>
 
 <br><p align="" float="left">
-  <img width=450 src="https://user-images.githubusercontent.com/73723037/230806682-9240f669-49d1-4b75-83cb-b2bf3e358e37.png">
-  <img width=450 src="https://user-images.githubusercontent.com/73723037/230806421-fad90f71-8d04-449a-ac07-8c36ef3a4b74.png">
+  <img width=400 src="https://user-images.githubusercontent.com/73723037/230806682-9240f669-49d1-4b75-83cb-b2bf3e358e37.png">
+  <img width=400 src="https://user-images.githubusercontent.com/73723037/230806421-fad90f71-8d04-449a-ac07-8c36ef3a4b74.png">
 </p>
 <p align="" float="left">
-  <img width=452 src="https://user-images.githubusercontent.com/73723037/230808034-6c0f28b5-91f1-4932-a0d7-6fbd3833d89e.png">
-  <img width=510 src="https://user-images.githubusercontent.com/73723037/230807020-973e4346-dc4d-4fd3-bae1-de791683bd1d.png">
+  <img width=400 src="https://user-images.githubusercontent.com/73723037/230808034-6c0f28b5-91f1-4932-a0d7-6fbd3833d89e.png">
+  <img width=400 src="https://user-images.githubusercontent.com/73723037/230807020-973e4346-dc4d-4fd3-bae1-de791683bd1d.png">
 </p>
 
 
