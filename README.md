@@ -1,16 +1,11 @@
 <h1 > Journées Nationales de la MIAGE - Web Site </h1>
 
 ## Présentation
-- Chaque année sont organisées les journées nationales de la MIAGE (JNM). Cet événement a pour but de faire rencontrer toutes les MIAGE de France afin que les
+- Chaque année sont organisées les **Journées Nationales de la MIAGE (JNM)**. Cet événement a pour but de faire rencontrer toutes les MIAGE de France afin que les
 étudiants et professeurs puissent se rencontrer et échanger.
-Dans le cadre de notre Projet Etablissement Web, l'objectif a été de developper une application web, de la conception de la
-base de données à la livraison du site web. 
-Celui-ci doit permettre d'une part de fournir les informations nécessaires aux futurs participants sur les journées, mais aussi de
-pouvoir aider à l'organisation de cet évènement avec des systèmes de reservation,
-d'inscription etc.
-Le comité d'association de la MIAGE de Nanterre a été notre client et nous a fait part
-du cahier des charges de ce projet dans lequel toutes ces fonctionnalités sont
-précisément renseignées.
+<br><br>Dans le cadre de notre Projet Etablissement Web, l'objectif a été de développer une application web, de la conception de la
+base de données à la livraison du site web. Celui-ci doit permettre d'une part de fournir les informations nécessaires aux futurs participants sur les journées, mais aussi de pouvoir faciliter l'organisation de cet évènement avec des systèmes de reservation, d'inscription etc.
+<br><br>**Le comité d'association de la MIAGE de Nanterre a été notre client et nous a fait part du cahier des charges de ce projet dans lequel toutes ces fonctionnalités sont précisément renseignées.**
 
 <p  float="left">
   <img width=450 src="https://user-images.githubusercontent.com/73723037/230806682-9240f669-49d1-4b75-83cb-b2bf3e358e37.png">
