@@ -7,7 +7,7 @@
 base de données à la livraison du site web. Celui-ci doit permettre d'une part de fournir les informations nécessaires aux futurs participants sur les journées, mais aussi de pouvoir faciliter l'organisation de cet évènement avec des systèmes de reservation, d'inscription etc.
 <br><br>**Le comité d'association de la MIAGE de Nanterre a été notre client et nous a fait part du cahier des charges de ce projet dans lequel toutes ces fonctionnalités sont précisément renseignées.**
 
-<p  float="left">
+<p align="center" float="left">
   <img width=450 src="https://user-images.githubusercontent.com/73723037/230806682-9240f669-49d1-4b75-83cb-b2bf3e358e37.png">
   <img width=434 src="https://user-images.githubusercontent.com/73723037/230806421-fad90f71-8d04-449a-ac07-8c36ef3a4b74.png">
   <img width=452 src="https://user-images.githubusercontent.com/73723037/230808034-6c0f28b5-91f1-4932-a0d7-6fbd3833d89e.png">
@@ -17,7 +17,7 @@ base de données à la livraison du site web. Celui-ci doit permettre d'une part
 
 ## Structure de la base de données
 - Capture d'écran de la base de données "JNM_Nanterre", phpMyAdmin : 
-<p >
+<p align="center">
   <img width=550 src="https://user-images.githubusercontent.com/73723037/230807187-9213d589-2a32-4955-9b3b-ef840b853539.png">
 </p>
 
