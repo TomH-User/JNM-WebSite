@@ -4,7 +4,8 @@
 - Chaque année sont organisées les **Journées Nationales de la MIAGE (JNM)**. Cet événement a pour but de faire rencontrer toutes les MIAGE de France afin que les
 étudiants et professeurs puissent se rencontrer et échanger.
 <br><br>Dans le cadre de notre Projet Etablissement Web, l'objectif a été de développer une application web, de la conception de la
-base de données à la livraison du site web. Celui-ci doit permettre d'une part de fournir les informations nécessaires aux futurs participants sur les journées, mais aussi de pouvoir faciliter l'organisation de cet évènement avec des systèmes de reservation, d'inscription etc.
+base de données à la livraison du site web. 
+<br>-> Celui-ci doit permettre d'une part de fournir les informations nécessaires aux futurs participants sur les journées, mais aussi de pouvoir faciliter l'organisation de cet évènement avec des systèmes de reservation, d'inscription etc.
 <br><br>**Le comité d'association de la MIAGE de Nanterre a été notre client et nous a fait part du cahier des charges de ce projet dans lequel toutes ces fonctionnalités sont précisément renseignées.**
 
 <p align="center" float="left">
